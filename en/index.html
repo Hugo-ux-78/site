@@ -207,7 +207,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .cover-w { perspective: 1000px; display: grid; place-items: center; padding: 1.4rem 0 .6rem; }
 .cover { width: 62%; aspect-ratio: 2 / 3; border-radius: 3px 8px 8px 3px; overflow: hidden; box-shadow: 0 26px 50px -20px rgba(21,34,49,.4), 0 0 0 1px rgba(21,34,49,.06); transition: transform .5s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; max-width: 100%; }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
-.book .t { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--peach); }
+.book .t { display: block; line-height: 1.5; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--peach); }
 .book:nth-child(n+2) .t { color: var(--teal); }
 .book h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
 .book p { margin: 0 0 .4rem; font-size: .9rem; color: var(--muted); }
@@ -522,11 +522,11 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 
   <section class="sec" id="livros" aria-labelledby="h-livros">
     <div class="wrap">
-      <div class="head"><div><p class="k">Books</p><h2 id="h-livros">Editor <span class="grad">and chapters</span></h2></div></div>
+      <div class="head"><div><p class="k">Books</p><h2 id="h-livros">Co-editor <span class="grad">and chapters</span></h2></div></div>
       <div class="books">
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-almedina.jpg" alt="Cover of the Handbook de Gestão de Caso" width="491" height="704" loading="lazy"></div></div>
-          <div><span class="t">Co-editor and chapter author · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 pages · in Portuguese</p><p>The journey of Mrs Luísa, aged 76, links evidence to practice. Chapters on the evolution of case management and the roles and competencies of the case manager and, with Adelaide Belo, on the individual care plan.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">View at Almedina ↗</a></p></div>
+          <div><span class="t">Co-editor of the book and chapter author · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 pages · in Portuguese</p><p>The journey of Mrs Luísa, aged 76, links evidence to practice. Chapters on the evolution of case management and the roles and competencies of the case manager and, with Adelaide Belo, on the individual care plan.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">View at Almedina ↗</a></p></div>
         </article>
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-springer.jpg" alt="Cover of the Handbook of Integrated Care, Springer" width="306" height="461" loading="lazy"></div></div>

@@ -207,7 +207,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .cover-w { perspective: 1000px; display: grid; place-items: center; padding: 1.4rem 0 .6rem; }
 .cover { width: 62%; aspect-ratio: 2 / 3; border-radius: 3px 8px 8px 3px; overflow: hidden; box-shadow: 0 26px 50px -20px rgba(21,34,49,.4), 0 0 0 1px rgba(21,34,49,.06); transition: transform .5s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; max-width: 100%; }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
-.book .t { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--peach); }
+.book .t { display: block; line-height: 1.5; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--peach); }
 .book:nth-child(n+2) .t { color: var(--teal); }
 .book h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
 .book p { margin: 0 0 .4rem; font-size: .9rem; color: var(--muted); }
@@ -492,7 +492,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
         <div class="card stat rv"><b class="grad" data-count="25" data-suffix="+">25+</b><span>Anos de enfermagem, do hospital ao domicílio</span></div>
         <div class="card stat rv"><b data-count="62">62</b><span>Intervenções em congressos, encontros e formações desde 2018</span></div>
         <div class="card stat rv"><b data-count="527">527</b><span>Pessoas no estudo sobre sintomas na multimorbilidade</span></div>
-        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Livros como cocoordenador ou autor de capítulos</span></div>
+        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Livros como co-coordenador ou autor de capítulos</span></div>
         <div class="card now rv"><h3>Atualmente</h3><ul>
           <li>Enfermeiro coordenador no Conselho de Gestão do projeto piloto do CED DCC</li>
           <li>Conselho Nacional de Enfermeiros, Ordem dos Enfermeiros</li>
@@ -522,11 +522,11 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 
   <section class="sec" id="livros" aria-labelledby="h-livros">
     <div class="wrap">
-      <div class="head"><div><p class="k">Livros</p><h2 id="h-livros">Coordenação <span class="grad">e capítulos</span></h2></div></div>
+      <div class="head"><div><p class="k">Livros</p><h2 id="h-livros">Co-coordenação <span class="grad">e capítulos</span></h2></div></div>
       <div class="books">
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="img/capa-almedina.jpg" alt="Capa do Handbook de Gestão de Caso" width="491" height="704" loading="lazy"></div></div>
-          <div><span class="t">Cocoordenação e capítulos · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 páginas</p><p>A jornada da senhora Luísa, de 76 anos, liga a evidência à prática. Capítulos sobre a evolução do <em>case management</em> e as funções e competências do gestor de caso e, com Adelaide Belo, sobre o plano individual de cuidados.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">Ver na Almedina ↗</a></p></div>
+          <div><span class="t">Co-coordenador da obra e autor de capítulos · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 páginas</p><p>A jornada da senhora Luísa, de 76 anos, liga a evidência à prática. Capítulos sobre a evolução do <em>case management</em> e as funções e competências do gestor de caso e, com Adelaide Belo, sobre o plano individual de cuidados.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">Ver na Almedina ↗</a></p></div>
         </article>
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="img/capa-springer.jpg" alt="Capa do Handbook of Integrated Care, Springer" width="306" height="461" loading="lazy"></div></div>
@@ -855,7 +855,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   // Funções que rodam no papel
-  var roles = ['Enfermeiro gestor de caso', 'Investigador em multimorbilidade', 'Cocoordenador do Handbook de Gestão de Caso', 'Formador e preletor', 'Conselheiro Nacional de Enfermeiros'];
+  var roles = ['Enfermeiro gestor de caso', 'Investigador em multimorbilidade', 'Co-coordenador do Handbook de Gestão de Caso', 'Formador e preletor', 'Conselheiro Nacional de Enfermeiros'];
   var roleEl = $('#role');
   if (!reduce && roleEl) {
     var ri = 0, ci = roles[0].length, del = true;
