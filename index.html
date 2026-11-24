@@ -166,6 +166,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .stat b { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
 .stat span { color: var(--muted); font-size: .9rem; line-height: 1.4; }
 .now { grid-column: span 2; padding: 1.6rem; }
+.proj { grid-column: 1 / -1; padding: 1.5rem 1.8rem; display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+.proj h3 { font-size: 1.15rem; font-weight: 500; line-height: 1.3; margin: 0 0 .25rem; }
+.proj p { margin: 0; color: var(--muted); font-size: .92rem; }
+.pbadge { flex: none; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--peach); background: var(--peach-soft); border-radius: 999px; padding: .35rem .8rem; }
+
 .now h3, .mini-h { font-family: var(--f-body); font-size: .76rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 1rem; }
 .now ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; font-size: .9rem; }
 .now li { display: flex; gap: .6rem; align-items: baseline; }
@@ -459,7 +464,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <div class="halo" aria-hidden="true"></div>
       <div class="ring" aria-hidden="true"></div>
       <img src="img/retrato-recorte.png" alt="Hugo Mendonça, de camisa branca e braços cruzados" width="684" height="760">
-      <div class="tagf t1" data-d="16"><span class="dot">16</span><div><b>Desde 2016</b>Programa de Gestão de Caso</div></div>
+      <div class="tagf t1" data-d="16"><span class="dot">17</span><div><b>Desde 2017</b>Programa de Gestão de Caso</div></div>
       <div class="tagf t2" data-d="-22"><span class="dot">★</span><div><b>8 distinções</b>Prémios e reconhecimentos</div></div>
       <div class="tagf t3" data-d="10"><span class="dot">MSc</span><div><b>Mestre e Especialista</b>Pessoa em Situação Crónica</div></div>
     </div>
@@ -480,20 +485,21 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <div class="head"><div><p class="k">Sobre</p><h2 id="h-sobre">Cuidar <span class="grad">sem paredes</span></h2></div></div>
       <div class="bento">
         <div class="card bio rv">
-          <p class="big">Sou enfermeiro desde 2000 e concebi, em 2016, o Programa de Gestão de Caso da Pessoa com Doença Crónica Complexa da ULS do Litoral Alentejano.</p>
+          <p class="big">Sou enfermeiro desde 2000 e, em 2017, integrei a equipa de conceção do Programa de Gestão de Caso da Pessoa com Doença Crónica Complexa da ULS do Litoral Alentejano.</p>
           <p>Comecei em Cardiologia, no Hospital de Santa Cruz, e passei pelo Hospital Curry Cabral, pelo Instituto do Coração e pelos cuidados no domicílio em Almada. Em Odemira, fui responsável pela Equipa de Cuidados Continuados Integrados. Sou mestre e especialista em Enfermagem Médico-Cirúrgica, na área da Pessoa em Situação Crónica, pela ESEL.</p>
-          <p>Integrei o Núcleo de Integração de Cuidados e sou promotor interno da Telessaúde da ULSLA. Em novembro de 2026, passei a integrar o Conselho de Gestão do CED-DCC, como enfermeiro coordenador.</p>
+          <p>Integrei o Núcleo de Integração de Cuidados e sou promotor interno da Telessaúde da ULSLA. Em novembro de 2026, passei a integrar o Conselho de Gestão do CED DCC, como enfermeiro coordenador.</p>
         </div>
         <div class="card stat rv"><b class="grad" data-count="25" data-suffix="+">25+</b><span>Anos de enfermagem, do hospital ao domicílio</span></div>
         <div class="card stat rv"><b data-count="62">62</b><span>Intervenções em congressos, encontros e formações desde 2018</span></div>
         <div class="card stat rv"><b data-count="527">527</b><span>Pessoas no estudo sobre sintomas na multimorbilidade</span></div>
-        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Livros com coordenação ou capítulos</span></div>
+        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Livros como cocoordenador ou autor de capítulos</span></div>
         <div class="card now rv"><h3>Atualmente</h3><ul>
-          <li>Enfermeiro coordenador no Conselho de Gestão do CED-DCC</li>
+          <li>Enfermeiro coordenador no Conselho de Gestão do CED DCC</li>
           <li>Conselho Nacional de Enfermeiros, Ordem dos Enfermeiros</li>
           <li>Vogal da direção da PAFIC</li>
           <li>Grupo de trabalho da DGS sobre a doença crónica</li>
         </ul></div>
+        <div class="card proj rv"><span class="pbadge">Projeto em curso</span><div><h3>CED DCC — Centro de Elevado Desempenho Doença Crónica Complexa</h3><p>ULS do Litoral Alentejano. Enfermeiro coordenador no Conselho de Gestão, desde novembro de 2026.</p></div></div>
       </div>
     </div>
   </section>
@@ -520,7 +526,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <div class="books">
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="img/capa-almedina.jpg" alt="Capa do Handbook de Gestão de Caso" width="491" height="704" loading="lazy"></div></div>
-          <div><span class="t">Coordenação · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 páginas</p><p>A jornada da senhora Luísa, de 76 anos, liga a evidência à prática. Capítulos sobre a evolução do <em>case management</em> e as funções e competências do gestor de caso e, com Adelaide Belo, sobre o plano individual de cuidados.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">Ver na Almedina ↗</a></p></div>
+          <div><span class="t">Cocoordenação e capítulos · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 páginas</p><p>A jornada da senhora Luísa, de 76 anos, liga a evidência à prática. Capítulos sobre a evolução do <em>case management</em> e as funções e competências do gestor de caso e, com Adelaide Belo, sobre o plano individual de cuidados.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">Ver na Almedina ↗</a></p></div>
         </article>
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="img/capa-springer.jpg" alt="Capa do Handbook of Integrated Care, Springer" width="306" height="461" loading="lazy"></div></div>
@@ -625,11 +631,11 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       </div>
       <div id="p-exp" role="tabpanel" aria-labelledby="t-exp">
         <ol class="tl"><span class="track-l" aria-hidden="true"><span class="fill"></span></span>
-          <li><span class="when">2026</span><div><h3>Conselho de Gestão do CED-DCC</h3><p>Enfermeiro coordenador, desde novembro de 2026. ULS do Litoral Alentejano.</p></div></li>
+          <li><span class="when">2026</span><div><h3>Conselho de Gestão do CED DCC</h3><p>Enfermeiro coordenador, desde novembro de 2026. ULS do Litoral Alentejano.</p></div></li>
           <li><span class="when">2025</span><div><h3>Promotor interno da Telessaúde</h3><p>ULS do Litoral Alentejano.</p></div></li>
           <li><span class="when">2024</span><div><h3>Ordem dos Enfermeiros e PAFIC</h3><p>Conselho Nacional de Enfermeiros e Comissão Nacional de Assessoria Técnico-Científica. Vogal da direção da PAFIC.</p></div></li>
           <li><span class="when">2017</span><div><h3>Filme sobre gestão de caso</h3><p>Coprodutor e correalizador.</p></div></li>
-          <li><span class="when">2016</span><div><h3>Enfermeiro gestor de caso</h3><p>Conceção do Programa de Gestão de Caso da Pessoa com Doença Crónica Complexa da ULSLA.</p></div></li>
+          <li><span class="when">2017</span><div><h3>Enfermeiro gestor de caso</h3><p>Equipa de conceção do Programa de Gestão de Caso da Pessoa com Doença Crónica Complexa da ULSLA.</p></div></li>
           <li><span class="when">2011</span><div><h3>Odemira</h3><p>Responsável pela Equipa de Cuidados Continuados Integrados (até 2018). Equipa de Intervenção Precoce e Saúde Escolar.</p></div></li>
           <li><span class="when">2006</span><div><h3>Ensino clínico</h3><p>Orientador externo de estágios de enfermagem, Universidade Católica Portuguesa (até 2011).</p></div></li>
           <li><span class="when">2004</span><div><h3>Hospital Curry Cabral e Instituto do Coração</h3><p>Nefrologia, hemodinâmica e cuidados intensivos coronários, até 2011. Medicina nuclear no Instituto do Coração.</p></div></li>
@@ -768,7 +774,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
           <li><strong>PAFIC</strong><span>Vogal da direção, desde 2024.</span></li>
         </ul></div>
         <div class="card role rv"><h3 class="mini-h">ULS do Litoral Alentejano</h3><ul>
-          <li><strong>Conselho de Gestão do CED-DCC</strong><span>Enfermeiro coordenador, desde novembro de 2026.</span></li>
+          <li><strong>Conselho de Gestão do CED DCC</strong><span>Enfermeiro coordenador, desde novembro de 2026.</span></li>
           <li><strong>Telessaúde</strong><span>Promotor interno.</span></li>
           <li><strong>Núcleo de Integração de Cuidados</strong><span>Membro, anteriormente.</span></li>
           <li><strong>Programa IMPULSO (ACSS e OMS/Europa)</strong><span>Focal point da ULSLA no eixo da integração de cuidados nos cuidados de saúde primários (2025).</span></li>
@@ -849,7 +855,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   // Funções que rodam no papel
-  var roles = ['Enfermeiro gestor de caso', 'Investigador em multimorbilidade', 'Coordenador do Handbook de Gestão de Caso', 'Formador e preletor', 'Conselheiro Nacional de Enfermeiros'];
+  var roles = ['Enfermeiro gestor de caso', 'Investigador em multimorbilidade', 'Cocoordenador do Handbook de Gestão de Caso', 'Formador e preletor', 'Conselheiro Nacional de Enfermeiros'];
   var roleEl = $('#role');
   if (!reduce && roleEl) {
     var ri = 0, ci = roles[0].length, del = true;

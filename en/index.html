@@ -166,6 +166,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .stat b { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
 .stat span { color: var(--muted); font-size: .9rem; line-height: 1.4; }
 .now { grid-column: span 2; padding: 1.6rem; }
+.proj { grid-column: 1 / -1; padding: 1.5rem 1.8rem; display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+.proj h3 { font-size: 1.15rem; font-weight: 500; line-height: 1.3; margin: 0 0 .25rem; }
+.proj p { margin: 0; color: var(--muted); font-size: .92rem; }
+.pbadge { flex: none; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--peach); background: var(--peach-soft); border-radius: 999px; padding: .35rem .8rem; }
+
 .now h3, .mini-h { font-family: var(--f-body); font-size: .76rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 1rem; }
 .now ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; font-size: .9rem; }
 .now li { display: flex; gap: .6rem; align-items: baseline; }
@@ -459,7 +464,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <div class="halo" aria-hidden="true"></div>
       <div class="ring" aria-hidden="true"></div>
       <img src="../img/retrato-recorte.png" alt="Hugo Mendonça in a white shirt with arms crossed" width="684" height="760">
-      <div class="tagf t1" data-d="16"><span class="dot">16</span><div><b>Since 2016</b>Case Management Programme</div></div>
+      <div class="tagf t1" data-d="16"><span class="dot">17</span><div><b>Since 2017</b>Case Management Programme</div></div>
       <div class="tagf t2" data-d="-22"><span class="dot">★</span><div><b>8 distinctions</b>Awards and recognitions</div></div>
       <div class="tagf t3" data-d="10"><span class="dot">MSc</span><div><b>MSc and Specialist</b>People with chronic conditions</div></div>
     </div>
@@ -480,20 +485,21 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <div class="head"><div><p class="k">About</p><h2 id="h-sobre">Care <span class="grad">without walls</span></h2></div></div>
       <div class="bento">
         <div class="card bio rv">
-          <p class="big">I have been a nurse since 2000. In 2016 I designed the Case Management Programme for People with Complex Chronic Disease at the Litoral Alentejano Local Health Unit (ULSLA), in Portugal.</p>
+          <p class="big">I have been a nurse since 2000. In 2017 I joined the team that designed the Case Management Programme for People with Complex Chronic Disease at the Litoral Alentejano Local Health Unit (ULSLA), in Portugal.</p>
           <p>I started in cardiology at Santa Cruz Hospital, then worked at Curry Cabral Hospital, the Instituto do Coração and in home care in Almada. In Odemira I led the Integrated Continuing Care Team. I hold a master’s degree and specialist title in Medical-Surgical Nursing (people with chronic conditions) from the Lisbon School of Nursing (ESEL).</p>
-          <p>I was a member of ULSLA’s Integrated Care Unit and I am its internal telehealth champion. In November 2026 I joined the management board of its Chronic Disease Centre (CED-DCC) as coordinating nurse.</p>
+          <p>I was a member of ULSLA’s Integrated Care Unit and I am its internal telehealth champion. In November 2026 I joined the management board of its High Performance Centre for Complex Chronic Disease (CED DCC) as coordinating nurse.</p>
         </div>
         <div class="card stat rv"><b class="grad" data-count="25" data-suffix="+">25+</b><span>Years in nursing, from hospital to home</span></div>
         <div class="card stat rv"><b data-count="62">62</b><span>Talks at congresses, meetings and training events since 2018</span></div>
         <div class="card stat rv"><b data-count="527">527</b><span>People in the study on symptoms in multimorbidity</span></div>
-        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Books, as editor or chapter author</span></div>
+        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Books, as co-editor or chapter author</span></div>
         <div class="card now rv"><h3>Currently</h3><ul>
-          <li>Coordinating nurse, Chronic Disease Centre (CED-DCC) management board</li>
+          <li>Coordinating nurse, High Performance Centre for Complex Chronic Disease (CED DCC) management board</li>
           <li>National Council of Nurses, Portuguese Order of Nurses</li>
           <li>Board member, Portuguese Association for Integrated Care (PAFIC)</li>
           <li>Directorate-General of Health working group on chronic disease</li>
         </ul></div>
+        <div class="card proj rv"><span class="pbadge">Current project</span><div><h3>CED DCC — High Performance Centre for Complex Chronic Disease</h3><p>Litoral Alentejano Local Health Unit. Coordinating nurse on the management board since November 2026.</p></div></div>
       </div>
     </div>
   </section>
@@ -520,7 +526,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <div class="books">
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-almedina.jpg" alt="Cover of the Handbook de Gestão de Caso" width="491" height="704" loading="lazy"></div></div>
-          <div><span class="t">Co-editor · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 pages · in Portuguese</p><p>The journey of Mrs Luísa, aged 76, links evidence to practice. Chapters on the evolution of case management and the roles and competencies of the case manager and, with Adelaide Belo, on the individual care plan.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">View at Almedina ↗</a></p></div>
+          <div><span class="t">Co-editor and chapter author · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 pages · in Portuguese</p><p>The journey of Mrs Luísa, aged 76, links evidence to practice. Chapters on the evolution of case management and the roles and competencies of the case manager and, with Adelaide Belo, on the individual care plan.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">View at Almedina ↗</a></p></div>
         </article>
         <article class="card book rv">
           <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-springer.jpg" alt="Cover of the Handbook of Integrated Care, Springer" width="306" height="461" loading="lazy"></div></div>
@@ -625,11 +631,11 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       </div>
       <div id="p-exp" role="tabpanel" aria-labelledby="t-exp">
         <ol class="tl"><span class="track-l" aria-hidden="true"><span class="fill"></span></span>
-          <li><span class="when">2026</span><div><h3>Chronic Disease Centre (CED-DCC) management board</h3><p>Coordinating nurse since November 2026. Litoral Alentejano Local Health Unit.</p></div></li>
+          <li><span class="when">2026</span><div><h3>High Performance Centre for Complex Chronic Disease (CED DCC) management board</h3><p>Coordinating nurse since November 2026. Litoral Alentejano Local Health Unit.</p></div></li>
           <li><span class="when">2025</span><div><h3>Internal telehealth champion</h3><p>Litoral Alentejano Local Health Unit.</p></div></li>
           <li><span class="when">2024</span><div><h3>Order of Nurses and PAFIC</h3><p>National Council of Nurses and National Technical-Scientific Advisory Committee. Board member of PAFIC.</p></div></li>
           <li><span class="when">2017</span><div><h3>Film on case management</h3><p>Co-producer and co-director.</p></div></li>
-          <li><span class="when">2016</span><div><h3>Nurse case manager</h3><p>Design of ULSLA’s Case Management Programme for People with Complex Chronic Disease.</p></div></li>
+          <li><span class="when">2017</span><div><h3>Nurse case manager</h3><p>Member of the team that designed ULSLA’s Case Management Programme for People with Complex Chronic Disease.</p></div></li>
           <li><span class="when">2011</span><div><h3>Odemira</h3><p>Head of the Integrated Continuing Care Team (until 2018). Early Intervention and School Health teams.</p></div></li>
           <li><span class="when">2006</span><div><h3>Clinical teaching</h3><p>External supervisor of nursing placements, Universidade Católica Portuguesa (until 2011).</p></div></li>
           <li><span class="when">2004</span><div><h3>Curry Cabral Hospital and Instituto do Coração</h3><p>Nephrology, haemodynamics and coronary intensive care, until 2011. Nuclear medicine at the Instituto do Coração.</p></div></li>
@@ -768,7 +774,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
           <li><strong>PAFIC</strong><span>Board member since 2024.</span></li>
         </ul></div>
         <div class="card role rv"><h3 class="mini-h">Litoral Alentejano Local Health Unit</h3><ul>
-          <li><strong>Chronic Disease Centre (CED-DCC) management board</strong><span>Coordinating nurse since November 2026.</span></li>
+          <li><strong>High Performance Centre for Complex Chronic Disease (CED DCC) management board</strong><span>Coordinating nurse since November 2026.</span></li>
           <li><strong>Telehealth</strong><span>Internal champion.</span></li>
           <li><strong>Integrated Care Unit</strong><span>Former member.</span></li>
           <li><strong>IMPULSO programme (ACSS and WHO/Europe)</strong><span>ULSLA focal point for integrated care in primary health care (2025).</span></li>
