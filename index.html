@@ -139,7 +139,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .track { display: flex; gap: 3rem; width: max-content; font-family: var(--f-display); font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 400; color: var(--muted); white-space: nowrap; }
 .track span { display: inline-flex; align-items: center; gap: 3rem; }
 .track span::after { content: "✦"; font-size: .8em; color: var(--peach); }
-@media (prefers-reduced-motion: no-preference) { .track { animation: mq 40s linear infinite; } .marquee:hover .track { animation-play-state: paused; } @keyframes mq { to { transform: translateX(-50%); } } }
+@media (max-width: 760px) { .marquee { padding: 1rem 16px; } .track { width: auto; flex-wrap: wrap; justify-content: center; gap: .5rem; white-space: normal; font-family: var(--f-body, Inter, sans-serif); font-size: .82rem; animation: none !important; transform: none !important; } .track span { padding: .35rem .8rem; border: 1px solid var(--line-2); border-radius: 999px; background: var(--card); color: var(--fg); } .track span::after { content: none; } .track span:nth-child(n+9) { display: none; } }
+@media (prefers-reduced-motion: no-preference) and (min-width: 761px) { .track { animation: mq 40s linear infinite; } .marquee:hover .track { animation-play-state: paused; } @keyframes mq { to { transform: translateX(-50%); } } }
 
 /* Secções */
 .sec { padding-block: 6.5rem; position: relative; }
@@ -789,7 +790,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       </div>
       <figure class="skyvid rv">
         <video id="skyvid" src="img/ceu-mertola.mp4" poster="img/ceu-mertola.jpg" muted loop playsinline preload="none" width="1280" height="854" aria-label="Timelapse da Via Láctea a mover-se sobre ruínas, em Mértola"></video>
-        <button class="vbtn" type="button" id="skyvidBtn" aria-label="Reproduzir o vídeo">▶</button>
+        <button class="vbtn" type="button" id="skyvidBtn" aria-label="Reproduzir o vídeo">▶︎</button>
         <figcaption><b>Via Láctea em movimento</b><span>Timelapse · Mértola, Alentejo</span></figcaption>
       </figure>
     </div>
@@ -803,9 +804,9 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
           <p class="k">Música</p>
           <h2 id="h-mus">Músicas que me <span class="grad">acompanham</span></h2>
           <ol class="tracks" id="tracks">
-            <li><button type="button" class="trk" data-yt="fTX34AIXUJw" data-t="Enquanto cá estou, JusDi"><span class="tn">01</span><span class="tt"><b>Enquanto cá estou</b><small>JusDi · 2026</small></span><span class="td">2:34</span><span class="tp" aria-hidden="true">▶</span></button></li>
-            <li><button type="button" class="trk" data-yt="JQ4mFaI17pk" data-t="I Won’t Complain, Benjamin Clementine"><span class="tn">02</span><span class="tt"><b>I Won’t Complain</b><small>Benjamin Clementine · 2016</small></span><span class="td">4:41</span><span class="tp" aria-hidden="true">▶</span></button></li>
-            <li><button type="button" class="trk" data-yt="68IJ6ei60OY" data-t="When I Stand, Owen James"><span class="tn">03</span><span class="tt"><b>When I Stand</b><small>Owen James · 2026</small></span><span class="td">3:20</span><span class="tp" aria-hidden="true">▶</span></button></li>
+            <li><button type="button" class="trk" data-yt="fTX34AIXUJw" data-t="Enquanto cá estou, JusDi"><span class="tn">01</span><span class="tt"><b>Enquanto cá estou</b><small>JusDi · 2026</small></span><span class="td">2:34</span><span class="tp" aria-hidden="true">▶︎</span></button></li>
+            <li><button type="button" class="trk" data-yt="JQ4mFaI17pk" data-t="I Won’t Complain, Benjamin Clementine"><span class="tn">02</span><span class="tt"><b>I Won’t Complain</b><small>Benjamin Clementine · 2016</small></span><span class="td">4:41</span><span class="tp" aria-hidden="true">▶︎</span></button></li>
+            <li><button type="button" class="trk" data-yt="68IJ6ei60OY" data-t="When I Stand, Owen James"><span class="tn">03</span><span class="tt"><b>When I Stand</b><small>Owen James · 2026</small></span><span class="td">3:20</span><span class="tp" aria-hidden="true">▶︎</span></button></li>
           </ol>
           <div class="song-frame" id="songFrame" hidden></div>
           <a class="song-yt" id="songYt" href="https://youtu.be/fTX34AIXUJw" target="_blank" rel="noopener">Abrir no YouTube ↗</a>
@@ -1020,7 +1021,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       f.appendChild(i);
       f.hidden = false;
       yt.href = 'https://youtu.be/' + id;
-      btns.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); o.querySelector('.tp').textContent = o === b ? '♪' : '▶'; });
+      btns.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); o.querySelector('.tp').textContent = o === b ? '♪︎' : '▶︎'; });
       b.closest('.song').classList.add('playing');
     });
   });
@@ -1032,7 +1033,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
   if (!v || !b) return;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, user = false;
   var en = document.documentElement.lang === 'en';
-  function sync() { b.textContent = v.paused ? '▶' : '❚❚'; b.setAttribute('aria-label', v.paused ? (en ? 'Play the video' : 'Reproduzir o vídeo') : (en ? 'Pause the video' : 'Pausar o vídeo')); }
+  function sync() { b.textContent = v.paused ? '▶︎' : '❚❚'; b.setAttribute('aria-label', v.paused ? (en ? 'Play the video' : 'Reproduzir o vídeo') : (en ? 'Pause the video' : 'Pausar o vídeo')); }
   v.addEventListener('play', sync); v.addEventListener('pause', sync);
   b.addEventListener('click', function () { user = true; if (v.paused) { v.play(); } else { v.pause(); } });
   if (!reduce && 'IntersectionObserver' in window) {
