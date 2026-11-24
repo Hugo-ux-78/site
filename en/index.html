@@ -206,6 +206,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .book h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
 .book p { margin: 0 0 .4rem; font-size: .9rem; color: var(--muted); }
 @media (max-width: 900px) { .books { grid-template-columns: minmax(0, 1fr); } .book { display: grid; grid-template-columns: 8rem minmax(0, 1fr); align-items: start; } .cover-w { padding: 0; } .cover { width: 100%; } }
+@media (max-width: 560px) { .book { display: flex; } .cover-w { padding: .4rem 0 0; } .cover { width: 9.5rem; } }
 
 /* Publicações */
 .tools { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-bottom: 1.6rem; }
@@ -293,7 +294,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .mail { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
 .mail code { font-family: var(--f-body); font-size: 1rem; padding: .9rem 1.2rem; border-radius: 999px; background: var(--bg); border: 1px solid var(--line-2); user-select: all; overflow-wrap: anywhere; min-width: 0; }
 .socials { margin-top: 1.6rem; display: flex; gap: 1.4rem; flex-wrap: wrap; font-weight: 500; }
-.socials a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: .1rem; }
+.socials a { white-space: nowrap; color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: .1rem; }
 .socials a:hover { border-color: var(--teal); color: var(--teal); }
 .cta .ph { border-radius: 24px; overflow: hidden; max-width: 100%; transform: rotate(2deg); transition: transform .5s; box-shadow: 0 26px 50px -20px rgba(21,34,49,.35); }
 .cta .ph:hover { transform: rotate(0) scale(1.02); }
@@ -374,7 +375,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .song-yt { display: inline-block; margin-top: .9rem; font-weight: 600; font-size: .9rem; }
 .song-frame { margin-top: 1.2rem; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
 .song-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-@media (max-width: 700px) { .song { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } .song-art { max-width: 160px; } }
+@media (max-width: 700px) { .song { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } .song-art { max-width: 120px; position: static; } .tt b { white-space: normal; } }
 
 
 /* O céu que fotografo */
