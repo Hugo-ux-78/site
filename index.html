@@ -220,7 +220,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .chip { border: 1px solid var(--line-2); background: transparent; color: var(--muted); padding: .5rem .95rem; border-radius: 999px; font-size: .86rem; font-weight: 500; cursor: pointer; transition: all .25s; }
 .chip:hover { color: var(--fg); border-color: var(--dim); }
 .chip[aria-pressed="true"], .chip[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-.chip small { opacity: .6; margin-left: .3rem; font-variant-numeric: tabular-nums; }
+.chip small { opacity: .6; margin-left: .3rem; font-size: .75rem; font-variant-numeric: tabular-nums; }
 .pubs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .pub { display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto; gap: 1.4rem; align-items: baseline; padding: 1.3rem .4rem; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
 .pub:hover { background: color-mix(in srgb, var(--card) 70%, transparent); padding-inline: 1rem; }
@@ -254,7 +254,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .talks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); gap: 1rem; }
 .talk { padding: 1.5rem; display: flex; flex-direction: column; gap: .55rem; }
 .talk .m { display: flex; justify-content: space-between; gap: .6rem; align-items: center; font-size: .8rem; color: var(--dim); }
-.talk .r { font-size: .7rem; font-weight: 600; letter-spacing: .04em; padding: .22rem .6rem; border-radius: 999px; color: var(--teal); background: color-mix(in srgb, var(--teal) 12%, transparent); white-space: nowrap; }
+.talk .r { font-size: .75rem; font-weight: 600; letter-spacing: .04em; padding: .22rem .6rem; border-radius: 999px; color: var(--teal); background: color-mix(in srgb, var(--teal) 12%, transparent); white-space: nowrap; }
 .talk .r.b { color: var(--peach); background: color-mix(in srgb, var(--peach) 12%, transparent); }
 .talk h3 { font-size: 1.08rem; font-weight: 500; line-height: 1.35; letter-spacing: -.01em; }
 .talk p { margin: 0; font-size: .88rem; color: var(--muted); }
@@ -377,6 +377,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .song-frame { margin-top: 1.2rem; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
 .song-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
 @media (max-width: 700px) { .song { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } .song-art { max-width: 120px; position: static; } .tt b { white-space: normal; } }
+@media (max-width: 420px) { .trk { grid-template-columns: minmax(0, 1fr) auto; gap: .8rem; } .tn, .td { display: none; } }
 
 
 /* O céu que fotografo */
@@ -404,7 +405,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 }
 
 /* Seletor de língua (só na versão autónoma) */
-.lang { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4rem; height: 2.2rem; padding: 0 .6rem; border-radius: 999px; border: 1px solid var(--line-2); font: 600 .78rem/1 var(--f-body, Inter, sans-serif); letter-spacing: .06em; color: var(--fg); text-decoration: none; background: var(--card); margin-left: .3rem; }
+.lang { display: inline-flex; align-items: center; justify-content: center; min-width: 2.75rem; height: 2.75rem; padding: 0 .6rem; border-radius: 999px; border: 1px solid var(--line-2); font: 600 .78rem/1 var(--f-body, Inter, sans-serif); letter-spacing: .06em; color: var(--fg); text-decoration: none; background: var(--card); margin-left: .3rem; }
 .lang:hover { border-color: var(--teal); color: var(--teal); }
 .sheet .lang { margin: 1rem 0 0; }
 </style>
