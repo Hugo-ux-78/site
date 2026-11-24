@@ -376,6 +376,15 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .song-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
 @media (max-width: 700px) { .song { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } .song-art { max-width: 160px; } }
 
+
+/* O céu que fotografo */
+.skygrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 15rem; gap: 1rem; grid-auto-flow: dense; }
+.sk.tall { grid-row: span 2; }
+.sk.wide { grid-column: span 2; }
+.sk { background: #05080B; }
+.sk.big img { object-position: 50% 55%; }
+@media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } }
+
 /* Entrada ao rolar (só depois do primeiro ecrã) */
 @media (prefers-reduced-motion: no-preference) {
   .rv { transition: transform .9s cubic-bezier(.2,.7,.2,1), opacity .9s; }
@@ -408,7 +417,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <li><a href="#percurso">Career</a></li>
       <li><a href="#intervencoes">Talks</a></li>
       <li><a href="#imagens">Photos</a></li>
-      <li><a href="#musica">Music</a></li>
+      <li><a href="#ceu">After hours</a></li>
       <li><a href="#contacto">Contact</a></li>
     </ul>
     <a class="lang" href="../" hreflang="pt-PT" lang="pt-PT">PT</a>
@@ -417,7 +426,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 </nav>
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
   <button class="close" id="sheetClose" type="button" aria-label="Close menu">✕</button>
-  <a href="#sobre">About</a><a href="#premios">Awards</a><a href="#livros">Books</a><a href="#publicacoes">Publications</a><a href="#posteres">Posters</a><a href="#cursos">Courses</a><a href="#percurso">Career</a><a href="#intervencoes">Talks</a><a href="#imagens">Photos</a><a href="#musica">Music</a><a href="#contacto">Contact</a>
+  <a href="#sobre">About</a><a href="#premios">Awards</a><a href="#livros">Books</a><a href="#publicacoes">Publications</a><a href="#posteres">Posters</a><a href="#cursos">Courses</a><a href="#percurso">Career</a><a href="#intervencoes">Talks</a><a href="#imagens">Photos</a><a href="#ceu">After hours</a><a href="#contacto">Contact</a>
 <a class="lang" href="../" hreflang="pt-PT" lang="pt-PT">PT</a>
 </div>
 
@@ -752,6 +761,18 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
           <li><strong>Integrated Care Unit</strong><span>Former member.</span></li>
           <li><strong>IMPULSO programme (ACSS and WHO/Europe)</strong><span>ULSLA focal point for integrated care in primary health care (2025).</span></li>
         </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ceu" aria-labelledby="h-ceu">
+    <div class="wrap">
+      <div class="head"><div><p class="k">After hours</p><h2 id="h-ceu">The sky <span class="grad">I photograph</span></h2><p class="sub">My own photographs, of the Alentejo and of deep space. Tap a photo to enlarge it.</p></div></div>
+      <div class="skygrid">
+        <button class="shot sk tall" type="button" data-zoom data-t="The Milky Way over the coast" data-d="Zambujeira do Mar, 2024."><img src="../img/ceu-via-lactea.jpg" alt="The Milky Way over the rocks and beach at Zambujeira do Mar, at night" loading="lazy" width="1200" height="1515"><span>The Milky Way over the coast</span></button>
+        <button class="shot sk wide tall big" type="button" data-zoom data-t="Moon over the sea" data-d="Zambujeira do Mar, 2024."><img src="../img/ceu-lua-mar.jpg" alt="Moon and stars over the sea, with moonlight reflected around a rock" loading="lazy" width="1600" height="1066"><span>Moon over the sea</span></button>
+        <button class="shot sk wide n" type="button" data-zoom data-t="The Heart Nebula" data-d="IC 1805, in the constellation Cassiopeia."><img src="../img/ceu-nebulosa.jpg" alt="The Heart Nebula in orange and blue tones over a field of stars" loading="lazy" width="1400" height="1386"><span>The Heart Nebula</span></button>
+        <button class="shot sk" type="button" data-zoom data-t="Moonrise" data-d="Santa Clara Dam, Alentejo."><img src="../img/ceu-nascer-lua.jpg" alt="Sequence of the moon rising over the horizon near the Santa Clara Dam" loading="lazy" width="1200" height="1199"><span>Moonrise</span></button>
       </div>
     </div>
   </section>

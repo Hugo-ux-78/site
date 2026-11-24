@@ -376,6 +376,15 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .song-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
 @media (max-width: 700px) { .song { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } .song-art { max-width: 160px; } }
 
+
+/* O céu que fotografo */
+.skygrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 15rem; gap: 1rem; grid-auto-flow: dense; }
+.sk.tall { grid-row: span 2; }
+.sk.wide { grid-column: span 2; }
+.sk { background: #05080B; }
+.sk.big img { object-position: 50% 55%; }
+@media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } }
+
 /* Entrada ao rolar (só depois do primeiro ecrã) */
 @media (prefers-reduced-motion: no-preference) {
   .rv { transition: transform .9s cubic-bezier(.2,.7,.2,1), opacity .9s; }
@@ -408,7 +417,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       <li><a href="#percurso">Percurso</a></li>
       <li><a href="#intervencoes">Intervenções</a></li>
       <li><a href="#imagens">Imagens</a></li>
-      <li><a href="#musica">Música</a></li>
+      <li><a href="#ceu">Fora de horas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
@@ -417,7 +426,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 </nav>
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
   <button class="close" id="sheetClose" type="button" aria-label="Fechar menu">✕</button>
-  <a href="#sobre">Sobre</a><a href="#premios">Prémios</a><a href="#livros">Livros</a><a href="#publicacoes">Publicações</a><a href="#posteres">Pósteres</a><a href="#cursos">Cursos</a><a href="#percurso">Percurso</a><a href="#intervencoes">Intervenções</a><a href="#imagens">Imagens</a><a href="#musica">Música</a><a href="#contacto">Contacto</a>
+  <a href="#sobre">Sobre</a><a href="#premios">Prémios</a><a href="#livros">Livros</a><a href="#publicacoes">Publicações</a><a href="#posteres">Pósteres</a><a href="#cursos">Cursos</a><a href="#percurso">Percurso</a><a href="#intervencoes">Intervenções</a><a href="#imagens">Imagens</a><a href="#ceu">Fora de horas</a><a href="#contacto">Contacto</a>
 <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
 </div>
 
@@ -752,6 +761,18 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
           <li><strong>Núcleo de Integração de Cuidados</strong><span>Membro, anteriormente.</span></li>
           <li><strong>Programa IMPULSO (ACSS e OMS/Europa)</strong><span>Focal point da ULSLA no eixo da integração de cuidados nos cuidados de saúde primários (2025).</span></li>
         </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ceu" aria-labelledby="h-ceu">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Fora de horas</p><h2 id="h-ceu">O céu <span class="grad">que fotografo</span></h2><p class="sub">Fotografias minhas, do Alentejo e do céu profundo. Toque numa fotografia para a ampliar.</p></div></div>
+      <div class="skygrid">
+        <button class="shot sk tall" type="button" data-zoom data-t="Via Láctea sobre a costa" data-d="Zambujeira do Mar, 2024."><img src="img/ceu-via-lactea.jpg" alt="Via Láctea sobre as rochas e a praia da Zambujeira do Mar, à noite" loading="lazy" width="1200" height="1515"><span>Via Láctea sobre a costa</span></button>
+        <button class="shot sk wide tall big" type="button" data-zoom data-t="Lua sobre o mar" data-d="Zambujeira do Mar, 2024."><img src="img/ceu-lua-mar.jpg" alt="Lua e estrelas sobre o mar, com o reflexo da luz à volta de um rochedo" loading="lazy" width="1600" height="1066"><span>Lua sobre o mar</span></button>
+        <button class="shot sk wide n" type="button" data-zoom data-t="Nebulosa do Coração" data-d="IC 1805, na constelação de Cassiopeia."><img src="img/ceu-nebulosa.jpg" alt="Nebulosa do Coração, em tons de laranja e azul, sobre um campo de estrelas" loading="lazy" width="1400" height="1386"><span>Nebulosa do Coração</span></button>
+        <button class="shot sk" type="button" data-zoom data-t="Nascer da lua" data-d="Barragem de Santa Clara, Alentejo."><img src="img/ceu-nascer-lua.jpg" alt="Sequência da lua a nascer sobre a linha do horizonte, junto à Barragem de Santa Clara" loading="lazy" width="1200" height="1199"><span>Nascer da lua</span></button>
       </div>
     </div>
   </section>
