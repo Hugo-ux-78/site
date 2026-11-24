@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F9FC">
+<link rel="icon" href="../img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../img/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Hugo Mendonça · Case management and integrated care">
+<meta property="og:description" content="Hugo Mendonça, RN, MSc — Nurse case manager for people with complex chronic disease at the Litoral Alentejano Local Health Unit, Portugal.">
+<meta property="og:image" content="https://hugofmendonca.com/img/partilha.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://hugofmendonca.com/en/">
+<link rel="canonical" href="https://hugofmendonca.com/en/">
+<link rel="alternate" hreflang="pt-PT" href="https://hugofmendonca.com/">
+<link rel="alternate" hreflang="en" href="https://hugofmendonca.com/en/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Hugo Mendonça · Case management and integrated care</title>
+<meta name="description" content="Hugo Mendonça, RN, MSc — Nurse case manager for people with complex chronic disease at the Litoral Alentejano Local Health Unit, Portugal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: página clara e luminosa, com o retrato recortado sobre um círculo pastel; luz ambiente suave em verde-água, pêssego e lilás claros; secções em bento com cartões que reagem ao cursor, filtros, pesquisa, acordeões, linha do tempo que se preenche e galeria com ampliação. Desenho de tema único, claro por opção. */
+:root {
+  --bg: #F7F9FC;
+  --bg-2: #F1F5F9;
+  --card: #FFFFFF;
+  --card-2: #FAFCFE;
+  --line: #E5EBF2;
+  --line-2: #D6DFE9;
+  --fg: #152231;
+  --muted: #5B6B7C;
+  --dim: #8796A7;
+  --teal: #1C9F90;
+  --peach: #E9794A;
+  --lilac: #7766E3;
+  --teal-soft: #D4F2EC;
+  --peach-soft: #FFE4D5;
+  --lilac-soft: #E7E3FF;
+  --grad: linear-gradient(100deg, var(--teal), var(--lilac) 50%, var(--peach));
+  --f-display: "Outfit", "Avenir Next", "Segoe UI", Arial, sans-serif;
+  --f-body: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --r: 22px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: var(--teal); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--peach); outline-offset: 3px; border-radius: 8px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+.wrap { max-width: 74rem; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+::selection { background: var(--teal); color: var(--bg); }
+
+/* Luz ambiente */
+.aurora { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.aurora i { position: absolute; border-radius: 50%; filter: blur(100px); opacity: .75; }
+.aurora .a1 { width: 44rem; height: 44rem; background: var(--teal-soft); top: -18rem; right: -12rem; }
+.aurora .a2 { width: 36rem; height: 36rem; background: var(--lilac-soft); top: 40%; left: -18rem; opacity: .8; }
+.aurora .a3 { width: 30rem; height: 30rem; background: var(--peach-soft); bottom: -14rem; right: 10%; opacity: .8; }
+.grain { display: none; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .5; background-image: radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px); background-size: 3px 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .aurora .a1 { animation: float1 18s ease-in-out infinite alternate; }
+  .aurora .a2 { animation: float2 24s ease-in-out infinite alternate; }
+  .aurora .a3 { animation: float1 20s ease-in-out infinite alternate-reverse; }
+  @keyframes float1 { to { transform: translate(-8rem, 6rem) scale(1.15); } }
+  @keyframes float2 { to { transform: translate(10rem, -4rem) scale(1.1); } }
+}
+
+/* Navegação flutuante */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+.progress { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; width: 100%; height: 2px; transform-origin: 0 50%; transform: scaleX(0); background: var(--grad); z-index: 31; }
+.nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); z-index: 25; display: flex; justify-content: center; padding-inline: max(12px, env(safe-area-inset-left, 0px)); margin-top: 12px; }
+.pill { display: flex; align-items: center; gap: .3rem; padding: .35rem; border-radius: 999px; background: color-mix(in srgb, var(--card) 72%, transparent); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); border: 1px solid var(--line-2); box-shadow: 0 12px 36px -14px rgba(21,34,49,.22); position: relative; max-width: 100%; }
+.pill .me { display: flex; align-items: center; gap: .55rem; padding: .25rem .9rem .25rem .3rem; text-decoration: none; color: var(--fg); font-family: var(--f-display); font-weight: 600; white-space: nowrap; }
+.pill .me img { width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover; object-position: 50% 8%; background: var(--teal-soft); }
+.pill ul { display: flex; list-style: none; margin: 0; padding: 0; position: relative; }
+.pill ul a { position: relative; z-index: 1; display: block; padding: .45rem .8rem; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: .86rem; font-weight: 500; transition: color .25s; white-space: nowrap; }
+.pill ul a:hover, .pill ul a.on { color: var(--fg); }
+.pill .ind { position: absolute; top: 0; bottom: 0; left: 0; width: 0; border-radius: 999px; background: var(--card-2); border: 1px solid var(--line-2); transition: transform .35s cubic-bezier(.2,.7,.2,1), width .35s cubic-bezier(.2,.7,.2,1), opacity .2s; opacity: 0; }
+.menu-btn { display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 0; background: var(--card-2); cursor: pointer; font-size: 1.1rem; }
+@media (max-width: 920px) { .pill ul { display: none; } .menu-btn { display: grid; place-items: center; } .pill { width: 100%; justify-content: space-between; } }
+.sheet { position: fixed; inset: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(10px); display: flex; flex-direction: column; justify-content: center; padding: max(24px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px)); }
+.sheet a { font-family: var(--f-display); font-size: 2rem; font-weight: 500; color: var(--fg); text-decoration: none; padding: .35rem 0; }
+.sheet a:hover { color: var(--teal); }
+.sheet .close { position: absolute; top: max(20px, env(safe-area-inset-top, 0px)); right: max(20px, env(safe-area-inset-right, 0px)); width: 2.8rem; height: 2.8rem; border-radius: 50%; border: 1px solid var(--line-2); background: var(--card); cursor: pointer; }
+
+/* Abertura */
+.hero { position: relative; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 2rem; align-items: center; padding-block: 3.5rem 2rem; min-height: min(52rem, 88vh); }
+.status { display: inline-flex; align-items: center; gap: .6rem; padding: .4rem .9rem .4rem .6rem; border-radius: 999px; border: 1px solid var(--line-2); background: color-mix(in srgb, var(--card) 60%, transparent); font-size: .84rem; color: var(--muted); margin-bottom: 1.8rem; }
+.status i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 0 var(--teal); }
+@media (prefers-reduced-motion: no-preference) { .status i { animation: ping 2.2s infinite; } @keyframes ping { 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } } }
+.hero h1 { font-weight: 600; font-size: clamp(3.2rem, 8.2vw, 6.6rem); line-height: .95; letter-spacing: -.05em; margin-bottom: 1.4rem; }
+.hero h1 span { display: block; }
+.role-line { font-family: var(--f-display); font-size: clamp(1.15rem, 2.2vw, 1.55rem); font-weight: 300; color: var(--muted); margin: 0 0 1.4rem; min-height: 1.5em; }
+.role-line b { font-weight: 500; color: var(--fg); }
+.role-line .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--peach); vertical-align: -.15em; margin-left: 2px; }
+@media (prefers-reduced-motion: no-preference) { .role-line .caret { animation: blink 1s steps(1) infinite; } @keyframes blink { 50% { opacity: 0; } } }
+.lede { color: var(--muted); max-width: 34rem; font-size: 1.06rem; margin: 0 0 2.2rem; }
+.lede b { color: var(--fg); font-weight: 500; }
+.ctas { display: flex; flex-wrap: wrap; gap: .8rem; }
+.btn { position: relative; display: inline-flex; align-items: center; gap: .55rem; padding: .95rem 1.45rem; border-radius: 999px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 0; cursor: pointer; transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s; will-change: transform; }
+.btn.main { background: var(--fg); color: var(--bg); }
+.btn.main:hover { box-shadow: 0 0 0 6px color-mix(in srgb, var(--teal) 25%, transparent); }
+.btn.ghost { color: var(--fg); background: color-mix(in srgb, var(--card) 70%, transparent); border: 1px solid var(--line-2); }
+.btn.ghost:hover { border-color: var(--teal); }
+.btn .arr { transition: transform .25s; } .btn:hover .arr { transform: translateX(4px); }
+
+.portrait { position: relative; align-self: end; justify-self: center; width: min(100%, 30rem); max-width: 100%; }
+.portrait .halo { position: absolute; inset: 6% -4% 8% -4%; border-radius: 50%; background: conic-gradient(from 210deg, var(--teal-soft), var(--lilac-soft), var(--peach-soft), var(--teal-soft)); filter: blur(40px); opacity: .9; }
+.portrait .ring { position: absolute; inset: 9% 6% 9% 6%; border-radius: 50%; background: linear-gradient(160deg, var(--teal-soft), var(--lilac-soft) 55%, var(--peach-soft)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); }
+.portrait img { position: relative; width: 100%; height: auto; filter: drop-shadow(0 24px 30px rgba(21,34,49,.14)); -webkit-mask-image: linear-gradient(to bottom, #000 84%, transparent); mask-image: linear-gradient(to bottom, #000 84%, transparent); }
+.tagf { position: absolute; display: flex; align-items: center; gap: .6rem; padding: .6rem .85rem; border-radius: 16px; background: color-mix(in srgb, var(--card) 78%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--line-2); font-size: .8rem; color: var(--muted); line-height: 1.25; box-shadow: 0 16px 36px -16px rgba(21,34,49,.28); transition: transform .4s ease-out; }
+.tagf b { display: block; color: var(--fg); font-family: var(--f-display); font-size: 1rem; font-weight: 600; }
+.tagf .dot { width: 2.1rem; height: 2.1rem; border-radius: 12px; display: grid; place-items: center; flex: none; font-family: var(--f-display); font-weight: 700; font-size: .85rem; }
+.tagf.t1 { left: -14%; top: 30%; } .tagf.t1 .dot { background: color-mix(in srgb, var(--teal) 18%, transparent); color: var(--teal); }
+.tagf.t2 { right: -4%; top: 50%; } .tagf.t2 .dot { background: color-mix(in srgb, var(--peach) 18%, transparent); color: var(--peach); }
+.tagf.t3 { left: 2%; bottom: 14%; } .tagf.t3 .dot { background: color-mix(in srgb, var(--lilac) 18%, transparent); color: var(--lilac); }
+.scroll-hint { position: absolute; left: 50%; bottom: .5rem; transform: translateX(-50%); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.scroll-hint i { width: 1px; height: 2.2rem; background: linear-gradient(var(--dim), transparent); }
+@media (max-width: 880px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: 2.5rem 1rem; gap: 1rem; }
+  .portrait { width: min(100%, 22rem); }
+  .tagf { font-size: .7rem; padding: .45rem .6rem; gap: .45rem; } .tagf b { font-size: .86rem; } .tagf .dot { width: 1.7rem; height: 1.7rem; font-size: .72rem; }
+  .tagf.t1 { left: -2%; top: auto; bottom: 36%; } .tagf.t2 { right: -2%; top: auto; bottom: 14%; } .tagf.t3 { display: none; } .scroll-hint { display: none; }
+}
+
+/* Faixa */
+.marquee { border-block: 1px solid var(--line); overflow: hidden; padding-block: 1.1rem; margin-top: 2rem; background: color-mix(in srgb, var(--bg-2) 70%, transparent); }
+.track { display: flex; gap: 3rem; width: max-content; font-family: var(--f-display); font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 400; color: var(--muted); white-space: nowrap; }
+.track span { display: inline-flex; align-items: center; gap: 3rem; }
+.track span::after { content: "✦"; font-size: .8em; color: var(--peach); }
+@media (prefers-reduced-motion: no-preference) { .track { animation: mq 40s linear infinite; } .marquee:hover .track { animation-play-state: paused; } @keyframes mq { to { transform: translateX(-50%); } } }
+
+/* Secções */
+.sec { padding-block: 6.5rem; position: relative; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+.k { display: inline-flex; align-items: center; gap: .6rem; font-size: .8rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin: 0 0 1rem; }
+.k::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; }
+.head h2 { font-weight: 500; font-size: clamp(2.1rem, 4.6vw, 3.4rem); letter-spacing: -.04em; line-height: 1.02; }
+.head .sub { color: var(--muted); max-width: 30rem; margin: 1rem 0 0; }
+@media (max-width: 700px) { .sec { padding-block: 4.5rem; } }
+
+/* Cartões com luz que segue o cursor */
+.card { position: relative; background: var(--card); box-shadow: 0 1px 2px rgba(21,34,49,.04), 0 10px 30px -18px rgba(21,34,49,.16); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; isolation: isolate; transition: border-color .3s, transform .3s; }
+.card::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--teal) 14%, transparent), transparent 60%); }
+.card:hover { border-color: var(--line-2); }
+.card:hover::before { opacity: 1; }
+
+/* Bento: sobre */
+.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.bento .bio { grid-column: span 4; grid-row: span 2; padding: 2.2rem; }
+.bento .bio p { color: var(--muted); margin: 0 0 1rem; max-width: 40rem; }
+.bento .bio p.big { font-family: var(--f-display); font-size: clamp(1.35rem, 2.4vw, 1.8rem); font-weight: 400; line-height: 1.32; letter-spacing: -.02em; color: var(--fg); margin-bottom: 1.4rem; }
+.stat { grid-column: span 2; padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 10rem; }
+.stat b { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: .9rem; line-height: 1.4; }
+.now { grid-column: span 2; padding: 1.6rem; }
+.now h3, .mini-h { font-family: var(--f-body); font-size: .76rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 1rem; }
+.now ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; font-size: .9rem; }
+.now li { display: flex; gap: .6rem; align-items: baseline; }
+.now li::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--teal); flex: none; transform: translateY(-.1rem); }
+.now li:nth-child(2)::before { background: var(--peach); } .now li:nth-child(3)::before { background: var(--lilac); }
+@media (max-width: 900px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bento .bio, .now { grid-column: span 2; } .stat { grid-column: span 1; } .bento .bio { padding: 1.6rem; } }
+
+/* Prémios */
+.awards { display: grid; gap: .7rem; }
+.aw { padding: 0; }
+.aw > button { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto 2.4rem; gap: 1.4rem; align-items: center; width: 100%; padding: 1.35rem 1.6rem; cursor: pointer; }
+.aw > button:focus-visible { outline: 2px solid var(--peach); outline-offset: -4px; border-radius: var(--r); }
+.aw .y { font-family: var(--f-display); font-size: 1.5rem; font-weight: 500; letter-spacing: -.03em; color: var(--dim); font-variant-numeric: tabular-nums; transition: color .3s; }
+.aw:hover .y, .aw.open .y { color: var(--peach); }
+.aw h3 { font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight: 500; letter-spacing: -.015em; line-height: 1.3; }
+.aw .by { font-size: .86rem; color: var(--muted); text-align: right; }
+.aw .pl { width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--muted); transition: transform .35s cubic-bezier(.2,.7,.2,1), background .3s, color .3s; }
+.aw.open .pl { transform: rotate(45deg); background: var(--fg); color: var(--bg); }
+.aw .body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.2,.7,.2,1); }
+.aw.open .body { grid-template-rows: 1fr; }
+.aw .body > div { overflow: hidden; }
+.aw .body p { margin: 0; padding: 0 1.6rem 1.4rem calc(5rem + 3rem); color: var(--muted); max-width: 52rem; }
+.aw.star .y::after { content: " ★"; font-size: .7em; color: var(--peach); }
+@media (max-width: 700px) {
+  .aw > button { grid-template-columns: minmax(0, 1fr) 2.4rem; gap: .5rem 1rem; padding: 1.2rem; }
+  .aw .y { grid-column: 1; font-size: 1.1rem; } .aw h3 { grid-column: 1; } .aw .by { grid-column: 1; text-align: left; }
+  .aw .pl { grid-column: 2; grid-row: 1 / span 3; }
+  .aw .body p { padding: 0 1.2rem 1.2rem; }
+}
+
+/* Livros */
+.books { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+.book { padding: 1.6rem 1.6rem 1.8rem; display: flex; flex-direction: column; gap: 1.4rem; }
+.cover-w { perspective: 1000px; display: grid; place-items: center; padding: 1.4rem 0 .6rem; }
+.cover { width: 62%; aspect-ratio: 2 / 3; border-radius: 3px 8px 8px 3px; overflow: hidden; box-shadow: 0 26px 50px -20px rgba(21,34,49,.4), 0 0 0 1px rgba(21,34,49,.06); transition: transform .5s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; max-width: 100%; }
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.book .t { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--peach); }
+.book:nth-child(n+2) .t { color: var(--teal); }
+.book h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
+.book p { margin: 0 0 .4rem; font-size: .9rem; color: var(--muted); }
+@media (max-width: 900px) { .books { grid-template-columns: minmax(0, 1fr); } .book { display: grid; grid-template-columns: 8rem minmax(0, 1fr); align-items: start; } .cover-w { padding: 0; } .cover { width: 100%; } }
+
+/* Publicações */
+.tools { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-bottom: 1.6rem; }
+.search { position: relative; flex: 1 1 16rem; min-width: 0; }
+.search input { width: 100%; padding: .85rem 1rem .85rem 2.7rem; border-radius: 999px; border: 1px solid var(--line-2); background: var(--card); color: var(--fg); font: inherit; font-size: .94rem; }
+.search input::placeholder { color: var(--dim); }
+.search input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 18%, transparent); }
+.search svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 1.05rem; height: 1.05rem; stroke: var(--dim); fill: none; stroke-width: 2; }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.chip { border: 1px solid var(--line-2); background: transparent; color: var(--muted); padding: .5rem .95rem; border-radius: 999px; font-size: .86rem; font-weight: 500; cursor: pointer; transition: all .25s; }
+.chip:hover { color: var(--fg); border-color: var(--dim); }
+.chip[aria-pressed="true"], .chip[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.chip small { opacity: .6; margin-left: .3rem; font-variant-numeric: tabular-nums; }
+.pubs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.pub { display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto; gap: 1.4rem; align-items: baseline; padding: 1.3rem .4rem; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
+.pub:hover { background: color-mix(in srgb, var(--card) 70%, transparent); padding-inline: 1rem; }
+.pub .y { font-family: var(--f-display); font-weight: 500; font-size: 1.05rem; color: var(--dim); font-variant-numeric: tabular-nums; }
+.pub h3 { font-size: 1.06rem; font-weight: 500; line-height: 1.4; letter-spacing: -.01em; margin-bottom: .25rem; }
+.pub p { margin: 0; font-size: .88rem; color: var(--muted); }
+.ty { font-size: .72rem; font-weight: 600; padding: .25rem .65rem; border-radius: 999px; white-space: nowrap; border: 1px solid; }
+.ty.livro { color: var(--peach); border-color: color-mix(in srgb, var(--peach) 40%, transparent); }
+.ty.artigo { color: var(--teal); border-color: color-mix(in srgb, var(--teal) 40%, transparent); }
+.ty.comunicacao { color: var(--lilac); border-color: color-mix(in srgb, var(--lilac) 40%, transparent); }
+.ty.outro { color: var(--muted); border-color: var(--line-2); }
+.empty { padding: 2rem 0; color: var(--muted); }
+@media (max-width: 640px) { .pub { grid-template-columns: minmax(0, 1fr); gap: .3rem; } .ty { justify-self: start; } }
+
+/* Percurso */
+.tabs { display: inline-flex; gap: .25rem; padding: .3rem; border-radius: 999px; background: var(--card); border: 1px solid var(--line); margin-bottom: 2.4rem; }
+.tabs .chip { border: 0; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl .track-l { position: absolute; left: 6.4rem; top: .6rem; bottom: .6rem; width: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.tl .fill { position: absolute; inset: 0 0 auto 0; height: 100%; background: linear-gradient(var(--teal), var(--lilac), var(--peach)); transform-origin: top; }
+.tl li { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr); gap: 2.4rem; padding: 1.1rem 0; position: relative; }
+.tl li::before { content: ""; position: absolute; left: calc(6.4rem - 6px); top: 1.55rem; width: 14px; height: 14px; border-radius: 50%; background: var(--card); border: 2px solid var(--line-2); transition: border-color .3s, background .3s; }
+.tl li.lit::before { border-color: var(--teal); background: var(--teal); box-shadow: 0 0 0 5px color-mix(in srgb, var(--teal) 18%, transparent); }
+.tl .when { font-family: var(--f-display); font-size: 1.2rem; font-weight: 500; color: var(--dim); text-align: right; font-variant-numeric: tabular-nums; transition: color .3s; }
+.tl li.lit .when { color: var(--fg); }
+.tl h3 { font-size: 1.08rem; font-weight: 500; line-height: 1.35; margin: .1rem 0 .2rem; }
+.tl p { margin: 0; color: var(--muted); font-size: .92rem; max-width: 42rem; }
+@media (max-width: 560px) { .tl .track-l { left: 4.4rem; } .tl li { grid-template-columns: 3.6rem minmax(0, 1fr); gap: 2rem; } .tl li::before { left: calc(4.4rem - 6px); } .tl .when { font-size: 1rem; } }
+
+/* Intervenções */
+.talks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); gap: 1rem; }
+.talk { padding: 1.5rem; display: flex; flex-direction: column; gap: .55rem; }
+.talk .m { display: flex; justify-content: space-between; gap: .6rem; align-items: center; font-size: .8rem; color: var(--dim); }
+.talk .r { font-size: .7rem; font-weight: 600; letter-spacing: .04em; padding: .22rem .6rem; border-radius: 999px; color: var(--teal); background: color-mix(in srgb, var(--teal) 12%, transparent); white-space: nowrap; }
+.talk .r.b { color: var(--peach); background: color-mix(in srgb, var(--peach) 12%, transparent); }
+.talk h3 { font-size: 1.08rem; font-weight: 500; line-height: 1.35; letter-spacing: -.01em; }
+.talk p { margin: 0; font-size: .88rem; color: var(--muted); }
+.more-wrap { display: flex; justify-content: center; margin-top: 2rem; }
+#talkfilter { max-width: 40rem; }
+
+/* Galeria */
+.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 12rem; gap: 1rem; grid-auto-flow: dense; }
+.shot { all: unset; box-sizing: border-box; position: relative; border-radius: var(--r); overflow: hidden; cursor: zoom-in; background: var(--card); border: 1px solid var(--line); }
+.shot:focus-visible { outline: 2px solid var(--peach); outline-offset: 3px; }
+.shot.w { grid-column: span 2; } .shot.t { grid-row: span 2; }
+.shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .5s; filter: saturate(.95); }
+.shot:hover img { transform: scale(1.06); filter: none; }
+.shot span { position: absolute; inset: auto 0 0 0; padding: 2.4rem 1rem .9rem; font-size: .85rem; font-weight: 500; background: linear-gradient(transparent, rgba(5,8,11,.88)); color: #F2F6F8; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 9.5rem; } }
+.lb { position: fixed; inset: 0; z-index: 50; background: rgba(247,249,252,.96); backdrop-filter: blur(8px); display: grid; grid-template-rows: 1fr auto; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lb img { max-height: 78vh; max-width: min(100%, 72rem); width: auto; border-radius: 16px; box-shadow: 0 30px 80px -20px rgba(21,34,49,.45); }
+.lb .cap { text-align: center; max-width: 40rem; padding: 1rem; color: var(--muted); }
+.lb .cap b { display: block; font-family: var(--f-display); font-weight: 500; font-size: 1.2rem; color: var(--fg); }
+.lb .c { position: absolute; width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--line-2); background: var(--card); color: var(--fg); cursor: pointer; font-size: 1.1rem; }
+.lb .c:hover { border-color: var(--teal); }
+.lb .x { top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); }
+.lb .p { left: max(16px, env(safe-area-inset-left, 0px)); top: 45%; } .lb .n { right: max(16px, env(safe-area-inset-right, 0px)); top: 45%; }
+
+/* Ensino e cargos */
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.role { padding: 1.8rem; }
+.role ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.role strong { display: block; font-weight: 500; font-family: var(--f-display); font-size: 1.05rem; line-height: 1.3; letter-spacing: -.01em; }
+.role span { font-size: .88rem; color: var(--muted); }
+@media (max-width: 900px) { .roles { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contacto */
+.cta { position: relative; border-radius: 32px; padding: 1px; background: var(--grad); }
+.cta-in { border-radius: 31px; background: radial-gradient(120% 140% at 0% 0%, var(--teal-soft), var(--card) 55%), var(--card); padding: clamp(2rem, 5vw, 4rem); display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.cta h2 { font-weight: 500; font-size: clamp(2.2rem, 5.4vw, 4rem); letter-spacing: -.045em; line-height: 1; margin-bottom: 1.2rem; }
+.cta p { color: var(--muted); margin: 0 0 2rem; max-width: 30rem; }
+.mail { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.mail code { font-family: var(--f-body); font-size: 1rem; padding: .9rem 1.2rem; border-radius: 999px; background: var(--bg); border: 1px solid var(--line-2); user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.socials { margin-top: 1.6rem; display: flex; gap: 1.4rem; flex-wrap: wrap; font-weight: 500; }
+.socials a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: .1rem; }
+.socials a:hover { border-color: var(--teal); color: var(--teal); }
+.cta .ph { border-radius: 24px; overflow: hidden; max-width: 100%; transform: rotate(2deg); transition: transform .5s; box-shadow: 0 26px 50px -20px rgba(21,34,49,.35); }
+.cta .ph:hover { transform: rotate(0) scale(1.02); }
+.cta .ph img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 55%; }
+@media (max-width: 880px) { .cta-in { grid-template-columns: minmax(0, 1fr); } .cta .ph { max-width: 24rem; } }
+footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 2rem; color: var(--dim); font-size: .84rem; }
+.top { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--line-2); background: var(--card); color: var(--fg); cursor: pointer; z-index: 20; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .3s, transform .3s; }
+.top.show { opacity: 1; pointer-events: auto; transform: none; }
+
+
+/* Pósteres e resumos */
+.pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 1.2rem; }
+.pcard { display: flex; flex-direction: column; }
+.pthumb { all: unset; box-sizing: border-box; position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.pthumb:focus-visible { outline: 2px solid var(--peach); outline-offset: -3px; }
+.pthumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.pthumb:hover img { transform: scale(1.05); }
+.pthumb span { position: absolute; right: .8rem; bottom: .8rem; font-size: .75rem; font-weight: 600; padding: .3rem .7rem; border-radius: 999px; background: color-mix(in srgb, var(--card) 88%, transparent); border: 1px solid var(--line-2); opacity: 0; transform: translateY(6px); transition: all .3s; }
+.pthumb:hover span, .pthumb:focus-visible span { opacity: 1; transform: none; }
+.pbody { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .45rem; }
+.pev { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+.pbody h3 { font-size: 1.08rem; font-weight: 500; line-height: 1.32; letter-spacing: -.01em; }
+.pbody p { margin: 0; font-size: .88rem; color: var(--muted); }
+.pbody a { font-weight: 600; font-size: .88rem; margin-top: .2rem; }
+.resumo { margin-top: .3rem; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); }
+.resumo summary { cursor: pointer; padding: .6rem .9rem; font-weight: 600; font-size: .86rem; color: var(--peach); list-style: none; }
+.resumo summary::-webkit-details-marker { display: none; }
+.resumo summary::before { content: "+ "; }
+.resumo[open] summary::before { content: "− "; }
+.resumo p { padding: 0 .9rem .9rem; font-size: .88rem; line-height: 1.6; color: var(--fg); }
+
+/* Formação executiva */
+.courses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+.course { display: flex; flex-direction: column; }
+.cimg { all: unset; box-sizing: border-box; display: block; aspect-ratio: 16 / 7; overflow: hidden; cursor: zoom-in; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.cimg:focus-visible { outline: 2px solid var(--peach); outline-offset: -3px; }
+.cimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.cimg:hover img { transform: scale(1.04); }
+.cbody { padding: 1.6rem 1.7rem 1.8rem; display: flex; flex-direction: column; gap: .8rem; }
+.cbody h3 { font-size: 1.3rem; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; }
+.cbody p { margin: 0; color: var(--muted); font-size: .94rem; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+.facts li { background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: .7rem .8rem; font-size: .78rem; color: var(--muted); line-height: 1.3; }
+.facts b { display: block; font-family: var(--f-display); font-weight: 500; font-size: 1rem; color: var(--fg); }
+.topics { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: .9rem; }
+.topics li { position: relative; padding-left: 1.3rem; }
+.topics li::before { content: "✦"; position: absolute; left: 0; top: .1em; color: var(--peach); font-size: .75rem; }
+@media (max-width: 900px) { .courses { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .facts { grid-template-columns: minmax(0, 1fr); } }
+
+
+/* Música */
+.song { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 2rem; align-items: start; padding: 1.6rem; }
+.song-art { position: sticky; top: 6rem; aspect-ratio: 1; border-radius: 22px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 20px 40px -20px color-mix(in srgb, var(--lilac) 60%, transparent); }
+.eq { display: flex; gap: 7px; align-items: flex-end; height: 70px; }
+.eq i { width: 10px; height: 30%; border-radius: 6px; background: rgba(255,255,255,.92); }
+.eq i:nth-child(2) { height: 70%; } .eq i:nth-child(3) { height: 100%; } .eq i:nth-child(4) { height: 55%; } .eq i:nth-child(5) { height: 35%; }
+.song.playing .eq i { animation: eq 1s ease-in-out infinite alternate; }
+.song.playing .eq i:nth-child(2) { animation-delay: -.3s; } .song.playing .eq i:nth-child(3) { animation-delay: -.6s; } .song.playing .eq i:nth-child(4) { animation-delay: -.15s; } .song.playing .eq i:nth-child(5) { animation-delay: -.45s; }
+@keyframes eq { from { height: 20%; } to { height: 100%; } }
+@media (prefers-reduced-motion: reduce) { .song.playing .eq i { animation: none; } }
+.song-body h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: .2rem 0 .3rem; }
+.song-by { color: var(--muted); margin: 0 0 1.2rem; }
+.song-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+.song-body h2 { margin-bottom: 1rem; }
+.tracks { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.trk { all: unset; box-sizing: border-box; width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 1rem; align-items: center; padding: .8rem 1rem; border-radius: 16px; border: 1px solid var(--line); background: var(--card); cursor: pointer; transition: border-color .25s, background .25s, transform .25s; }
+.trk:hover { border-color: var(--line-2); transform: translateX(3px); }
+.trk:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+.trk[aria-pressed="true"] { background: var(--teal-soft); border-color: color-mix(in srgb, var(--teal) 40%, transparent); }
+.tn { font-family: var(--f-display); color: var(--dim); font-size: .85rem; }
+.tt { display: flex; flex-direction: column; min-width: 0; }
+.tt b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tt small { color: var(--muted); font-size: .8rem; }
+.td { color: var(--muted); font-size: .85rem; font-variant-numeric: tabular-nums; }
+.tp { width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center; background: var(--fg); color: #fff; font-size: .7rem; }
+.trk[aria-pressed="true"] .tp { background: var(--teal); }
+.song-yt { display: inline-block; margin-top: .9rem; font-weight: 600; font-size: .9rem; }
+.song-frame { margin-top: 1.2rem; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
+.song-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+@media (max-width: 700px) { .song { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } .song-art { max-width: 160px; } }
+
+/* Entrada ao rolar (só depois do primeiro ecrã) */
+@media (prefers-reduced-motion: no-preference) {
+  .rv { transition: transform .9s cubic-bezier(.2,.7,.2,1), opacity .9s; }
+  .rv.pre { transform: translateY(34px); opacity: .001; }
+}
+
+/* Seletor de língua (só na versão autónoma) */
+.lang { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4rem; height: 2.2rem; padding: 0 .6rem; border-radius: 999px; border: 1px solid var(--line-2); font: 600 .78rem/1 var(--f-body, Inter, sans-serif); letter-spacing: .06em; color: var(--fg); text-decoration: none; background: var(--card); margin-left: .3rem; }
+.lang:hover { border-color: var(--teal); color: var(--teal); }
+.sheet .lang { margin: 1rem 0 0; }
+</style>
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Sections">
+  <div class="pill" id="pill">
+    <a class="me" href="#inicio"><img src="../img/retrato-recorte.png" alt="" width="40" height="40">Hugo Mendonça</a>
+    <ul id="links">
+      <span class="ind" id="ind" aria-hidden="true"></span>
+      <li><a href="#sobre">About</a></li>
+      <li><a href="#premios">Awards</a></li>
+      <li><a href="#livros">Books</a></li>
+      <li><a href="#publicacoes">Publications</a></li>
+      <li><a href="#posteres">Posters</a></li>
+      <li><a href="#cursos">Courses</a></li>
+      <li><a href="#percurso">Career</a></li>
+      <li><a href="#intervencoes">Talks</a></li>
+      <li><a href="#imagens">Photos</a></li>
+      <li><a href="#musica">Music</a></li>
+      <li><a href="#contacto">Contact</a></li>
+    </ul>
+    <a class="lang" href="../" hreflang="pt-PT" lang="pt-PT">PT</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="close" id="sheetClose" type="button" aria-label="Close menu">✕</button>
+  <a href="#sobre">About</a><a href="#premios">Awards</a><a href="#livros">Books</a><a href="#publicacoes">Publications</a><a href="#posteres">Posters</a><a href="#cursos">Courses</a><a href="#percurso">Career</a><a href="#intervencoes">Talks</a><a href="#imagens">Photos</a><a href="#musica">Music</a><a href="#contacto">Contact</a>
+<a class="lang" href="../" hreflang="pt-PT" lang="pt-PT">PT</a>
+</div>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="status"><i aria-hidden="true"></i>Litoral Alentejano Local Health Unit · Odemira, Portugal</p>
+      <h1><span>Hugo</span><span class="grad">Mendonça</span></h1>
+      <p class="role-line" aria-live="polite"><b id="role">Nurse case manager</b><span class="caret" aria-hidden="true"></span></p>
+      <p class="lede">I support people living with several chronic conditions and work so that <b>the hospital, the health centre and the home</b> function as a single care pathway.</p>
+      <div class="ctas">
+        <a class="btn main mag" href="#publicacoes">Published work <span class="arr">→</span></a>
+        <a class="btn ghost mag" href="#contacto">Invite me to speak</a>
+      </div>
+    </div>
+    <div class="portrait" id="portrait">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="ring" aria-hidden="true"></div>
+      <img src="../img/retrato-recorte.png" alt="Hugo Mendonça in a white shirt with arms crossed" width="684" height="760">
+      <div class="tagf t1" data-d="16"><span class="dot">16</span><div><b>Since 2016</b>Case Management Programme</div></div>
+      <div class="tagf t2" data-d="-22"><span class="dot">★</span><div><b>8 distinctions</b>Awards and recognitions</div></div>
+      <div class="tagf t3" data-d="10"><span class="dot">MSc</span><div><b>MSc and Specialist</b>People with chronic conditions</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll<i></i></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Case management</span><span>Complex chronic disease</span><span>Integrated care</span><span>Multimorbidity</span><span>Telehealth</span><span>Transitional care</span><span>Symptom self-management</span><span>Care pathways</span>
+    <span>Case management</span><span>Complex chronic disease</span><span>Integrated care</span><span>Multimorbidity</span><span>Telehealth</span><span>Transitional care</span><span>Symptom self-management</span><span>Care pathways</span>
+  </div>
+</div>
+
+<main>
+  <section class="sec" id="sobre" aria-labelledby="h-sobre">
+    <div class="wrap">
+      <div class="head"><div><p class="k">About</p><h2 id="h-sobre">Care <span class="grad">without walls</span></h2></div></div>
+      <div class="bento">
+        <div class="card bio rv">
+          <p class="big">I have been a nurse since 2000. In 2016 I designed the Case Management Programme for People with Complex Chronic Disease at the Litoral Alentejano Local Health Unit (ULSLA), in Portugal.</p>
+          <p>I started in cardiology at Santa Cruz Hospital, then worked at Curry Cabral Hospital, the Instituto do Coração and in home care in Almada. In Odemira I led the Integrated Continuing Care Team. I hold a master’s degree and specialist title in Medical-Surgical Nursing (people with chronic conditions) from the Lisbon School of Nursing (ESEL).</p>
+          <p>I am a member of ULSLA’s Integrated Care Unit, its Telemonitoring Coordination Unit and the management board of its Chronic Disease Centre (CED-DCC), and the internal telehealth champion.</p>
+        </div>
+        <div class="card stat rv"><b class="grad" data-count="25" data-suffix="+">25+</b><span>Years in nursing, from hospital to home</span></div>
+        <div class="card stat rv"><b data-count="63">63</b><span>Talks at congresses, meetings and training events since 2018</span></div>
+        <div class="card stat rv"><b data-count="527">527</b><span>People in the study on symptoms in multimorbidity</span></div>
+        <div class="card stat rv"><b class="grad" data-count="3">3</b><span>Books, as editor or chapter author</span></div>
+        <div class="card now rv"><h3>Currently</h3><ul>
+          <li>National Council of Nurses, Portuguese Order of Nurses</li>
+          <li>Board member, Portuguese Association for Integrated Care (PAFIC)</li>
+          <li>Directorate-General of Health working group on chronic disease</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="premios" aria-labelledby="h-prem">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Awards and recognitions</p><h2 id="h-prem">A team’s work, <span class="grad">recognised</span></h2><p class="sub">Open each award to see what was recognised.</p></div></div>
+      <div class="awards" id="awards">
+        <div class="card aw star rv"><button type="button" aria-expanded="false"><span class="y">2026</span><h3>IMPULSO Award 2026</h3><span class="by">ACSS and WHO/Europe</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>ULSLA’s Case Management Programme was one of 15 projects awarded, out of 54 assessed by a national and international committee. The initiative, funded by the European Union, supports integrated care in Portugal’s Local Health Units.</p></div></div></div>
+        <div class="card aw rv"><button type="button" aria-expanded="false"><span class="y">2024</span><h3>Best Oral Presentation</h3><span class="by">National Integrated Care Meeting, PAFIC</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>For the inter-municipal programme “Live Longer, Live Better”, tackling obesity and cardiovascular risk factors in Odemira.</p></div></div></div>
+        <div class="card aw star rv"><button type="button" aria-expanded="false"><span class="y">2024</span><h3>Public Service Medal</h3><span class="by">Municipality of Odemira</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>Awarded by the Municipality of Odemira to the members of the Case Management Programme and the care pathways teams, received on 8 September 2024.</p></div></div></div>
+        <div class="card aw rv"><button type="button" aria-expanded="false"><span class="y">2024</span><h3>Vote of praise</h3><span class="by">Municipality of Odemira</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>Vote of praise from the Municipality of Odemira for the daily work of ULSLA’s Case Management Team.</p></div></div></div>
+        <div class="card aw rv"><button type="button" aria-expanded="false"><span class="y">2024</span><h3>Top Health Awards 2024</h3><span class="by">Top Health Awards Association</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>First edition, with 148 entries. ULSLA’s Case Management Programme won the Integrated Care category on 21 March 2024.</p></div></div></div>
+        <div class="card aw rv"><button type="button" aria-expanded="false"><span class="y">2019</span><h3>Merit Recognition</h3><span class="by">Municipality of Odemira</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>Tribute to ULSLA’s Case Management Team for its outstanding work for the health of the whole community.</p></div></div></div>
+        <div class="card aw star rv"><button type="button" aria-expanded="false"><span class="y">2018</span><h3>Good Practice in Health Award, 1st prize</h3><span class="by">APDH, 12th edition</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>ULSLA project “Frequent users of the emergency department: case management as an intervention model”. Lead applicant.</p></div></div></div>
+        <div class="card aw rv"><button type="button" aria-expanded="false"><span class="y">2018</span><h3>Sustainable Health Award</h3><span class="by">Sanofi and Jornal de Negócios, 7th edition</span><span class="pl" aria-hidden="true">+</span></button><div class="body"><div><p>Member of the winning team in the Special Integrated Projects category. The award recognises care providers that apply sustainability principles with a visible impact on health.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="livros" aria-labelledby="h-livros">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Books</p><h2 id="h-livros">Editor <span class="grad">and chapters</span></h2></div></div>
+      <div class="books">
+        <article class="card book rv">
+          <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-almedina.jpg" alt="Cover of the Handbook de Gestão de Caso" width="491" height="704" loading="lazy"></div></div>
+          <div><span class="t">Co-editor · 2026</span><h3>Handbook de Gestão de Caso</h3><p>Almedina · 238 pages · in Portuguese</p><p>The journey of Mrs Luísa, aged 76, links evidence to practice. Chapters on the evolution of case management and the roles and competencies of the case manager and, with Adelaide Belo, on the individual care plan.</p><p><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">View at Almedina ↗</a></p></div>
+        </article>
+        <article class="card book rv">
+          <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-springer.jpg" alt="Cover of the Handbook of Integrated Care, Springer" width="306" height="461" loading="lazy"></div></div>
+          <div><span class="t">Chapter · 2025</span><h3>Developing Integrated Care in Portugal Through Local Health Units</h3><p>Handbook of Integrated Care, 3rd ed. · Springer</p><p>Four cases of integration in Portugal’s Local Health Units, including ULSLA’s case management programme.</p><p><a href="https://doi.org/10.1007/978-3-031-25376-8_60-1" target="_blank" rel="noopener">DOI ↗</a></p></div>
+        </article>
+        <article class="card book rv">
+          <div class="cover-w"><div class="cover" data-tilt><img src="../img/capa-lidel.jpg" alt="Cover of the book Enfermagem Avançada, Lidel" width="574" height="800" loading="lazy"></div></div>
+          <div><span class="t">Chapter · 2024</span><h3>Gestão de Caso: Um Modelo para a Prestação de Cuidados</h3><p>Enfermagem Avançada · Lidel · pp. 257–263</p><p>With Mónica Santos, Vítor Gomes, S. Matos, C. M. Soares and A. E. Soares. In Portuguese.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="publicacoes" aria-labelledby="h-pub">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Published work</p><h2 id="h-pub">Publications <span class="grad">and presentations</span></h2></div></div>
+      <div class="tools">
+        <label class="search"><span hidden>Search publications</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search by title, journal or year" autocomplete="off"></label>
+        <div class="chips" role="group" aria-label="Filter by type" id="pubfilter">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">All<small></small></button>
+          <button class="chip" type="button" data-f="livro" aria-pressed="false">Books and chapters<small></small></button>
+          <button class="chip" type="button" data-f="artigo" aria-pressed="false">Articles and abstracts<small></small></button>
+          <button class="chip" type="button" data-f="comunicacao" aria-pressed="false">Presentations<small></small></button>
+          <button class="chip" type="button" data-f="outro" aria-pressed="false">Other<small></small></button>
+        </div>
+      </div>
+      <ul class="pubs" id="pubs">
+        <li class="pub" data-c="livro"><span class="y">2026</span><div><h3>Handbook de Gestão de Caso</h3><p>Belo, A., Henriques, H. R., Mendonça, H., Seringa, J., &amp; Santos, M. (eds.). Almedina. In Portuguese.</p></div><span class="ty livro">Book</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2026</span><div><h3>Navigating through the Integrated Assistance Pathways: User connection teams with the patient on the radar</h3><p>Co-author. <em>International Journal of Integrated Care</em>, 26(S1), 545. Poster at ICIC25, Lisbon. <a href="https://doi.org/10.5334/ijic.ICIC25545" target="_blank" rel="noopener">DOI</a></p></div><span class="ty artigo">Abstract</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2026</span><div><h3>Maturity of Local Health Units to provide Integrated Care</h3><p>Co-author, with Joana Seringa, Rui Santana, Mónica Santos and Cláudia Almeida. <em>International Journal of Integrated Care</em>, 26(S1), 541. Poster at ICIC25, Lisbon. <a href="https://doi.org/10.5334/ijic.ICIC25541" target="_blank" rel="noopener">DOI</a></p></div><span class="ty artigo">Abstract</span></li>
+        <li class="pub" data-c="comunicacao"><span class="y">2026</span><div><h3>Impacto assistencial e ambiental do posto de colheitas descentralizado do Serviço de Patologia Clínica</h3><p>Mendonça, H. F., Gomes, V., Rosalino, V., Almeida, R., Direito, A., Henriques, J., Garcia, A., &amp; Gonçalves, M. Poster at the 2nd National Congress on Health and Environment, Lisbon. In Portuguese.</p></div><span class="ty comunicacao">Poster</span></li>
+        <li class="pub" data-c="comunicacao"><span class="y">2026</span><div><h3>Sintomas experienciados pela pessoa com multimorbilidade que vive em casa</h3><p>International Nursing Research Days, Portuguese Order of Nurses. Also presented at ULSLA’s 1st Medical-Surgical Nursing Meeting (2025). In Portuguese.</p></div><span class="ty comunicacao">Presentation</span></li>
+        <li class="pub" data-c="livro"><span class="y">2025</span><div><h3>Developing Integrated Care in Portugal Through Local Health Units</h3><p>Belo, A., Seringa, J., Mendonça, H., et al. In Amelung, V. et al. (eds.), <em>Handbook of Integrated Care</em>, 3rd ed. Springer. <a href="https://doi.org/10.1007/978-3-031-25376-8_60-1" target="_blank" rel="noopener">DOI</a></p></div><span class="ty livro">Chapter</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2025</span><div><h3>Case Management – an example from a Portuguese local health unit</h3><p><em>International Journal of Integrated Care</em>, 25(S1), 436. Poster at ICIC24, Belfast. <a href="https://doi.org/10.5334/ijic.ICIC24436" target="_blank" rel="noopener">DOI</a></p></div><span class="ty artigo">Abstract</span></li>
+        <li class="pub" data-c="outro"><span class="y">2025</span><div><h3>Capacitação da pessoa com multimorbilidade para a autogestão de sintomas: intervenção do enfermeiro gestor de caso</h3><p>Master’s report, Lisbon School of Nursing (ESEL). Integrative review and cross-sectional study with 527 people. Supervised by Helga Rafael Henriques. Graded 20/20. In Portuguese.</p></div><span class="ty outro">Master’s</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2024</span><div><h3>Unidades Locais de Saúde: o caminho para a integração e eficiência nos cuidados</h3><p>Mendonça, H., Santos, M., &amp; Gomes, V. Opinion article, Info Saúde, 10th issue. In Portuguese.</p></div><span class="ty artigo">Article</span></li>
+        <li class="pub" data-c="livro"><span class="y">2024</span><div><h3>Gestão de Caso: Um Modelo para a Prestação de Cuidados</h3><p>Mendonça, H., Santos, M., Gomes, V., Matos, S., Soares, C. M., &amp; Soares, A. E. In Marques, R., Néné, M., &amp; Sequeira, C. (eds.), <em>Enfermagem Avançada</em> (pp. 257–263). Lidel. In Portuguese.</p></div><span class="ty livro">Chapter</span></li>
+        <li class="pub" data-c="comunicacao"><span class="y">2024</span><div><h3>Eliminando a Obesidade, Vivendo Mais e Melhor</h3><p>4th National Integrated Care Meeting, Coimbra. Best oral presentation. Inter-municipal programme with the Municipality of Odemira. In Portuguese.</p></div><span class="ty comunicacao">Presentation</span></li>
+        <li class="pub" data-c="comunicacao"><span class="y">2024</span><div><h3>Modelo de organização de cuidados à pessoa com multimorbilidade: gestão de caso e enfermeiro gestor de caso</h3><p>Poster at the 4th National Integrated Care Meeting, Coimbra. In Portuguese.</p></div><span class="ty comunicacao">Poster</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2022</span><div><h3>Coordination across borders</h3><p><em>International Journal of Integrated Care</em> (abstract, ICIC22). Poster in Odense: a case of coordination across levels of care. <a href="https://doi.org/10.5334/ijic.ICIC22305" target="_blank" rel="noopener">DOI</a></p></div><span class="ty artigo">Abstract</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2019</span><div><h3>Case management and coordination between primary and hospital care</h3><p><em>International Journal of Integrated Care</em>, 19(S1), A198. ICIC19, San Sebastián. <a href="https://doi.org/10.5334/ijic.s3198" target="_blank" rel="noopener">DOI</a></p></div><span class="ty artigo">Abstract</span></li>
+        <li class="pub" data-c="artigo"><span class="y">2019</span><div><h3>Case Management: The Beginning of a New Era in a Peripheral Portuguese Hospital</h3><p>Taveira, I., Belo, A., …, Mendonça, H., et al. <em>Professional Case Management</em>, 24(4), 222–225. <a href="https://doi.org/10.1097/NCM.0000000000000377" target="_blank" rel="noopener">DOI</a></p></div><span class="ty artigo">Article</span></li>
+        <li class="pub" data-c="outro"><span class="y">2019</span><div><h3>Doentes crónicos mais complexos com enfermeiros gestores de caso na ULS do Litoral Alentejano</h3><p>Report in justNews (in Portuguese). <a href="https://justnews.pt/noticias/doentes-cronicos-mais-complexos-com-enfermeiros-gestores-de-caso-na-uls-do-litoral-alentejano" target="_blank" rel="noopener">Read</a></p></div><span class="ty outro">Press</span></li>
+        <li class="pub" data-c="comunicacao"><span class="y">2018</span><div><h3>Case Management – Intervention Model for Emergency Service Frequent Users</h3><p>Good Practice in Health Meeting, APDH. First-prize winning work.</p></div><span class="ty comunicacao">Presentation</span></li>
+        <li class="pub" data-c="outro"><span class="y">2017</span><div><h3>Filme sobre gestão de caso na pessoa com doença crónica complexa</h3><p>Co-producer and co-director of the ULSLA film (in Portuguese). <a href="https://youtu.be/QTIQaIXtd24" target="_blank" rel="noopener">Watch</a></p></div><span class="ty outro">Video</span></li>
+      </ul>
+      <p class="empty" id="empty" hidden>No publication matches this search. Try another word or choose “All”.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="posteres" aria-labelledby="h-post">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Posters and abstracts</p><h2 id="h-post">Work <span class="grad">presented</span></h2><p class="sub">Posters, abstracts and articles presented at congresses and in journals. Tap an image to enlarge it.</p></div></div>
+      <div class="pgrid">
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Navigating through the Integrated Assistance Pathways" data-d="ICIC25 · Lisbon · 2025"><img src="../img/res-icic25-percursos.jpg" alt="Navigating through the Integrated Assistance Pathways" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">ICIC25 · Lisbon · 2025</span><h3>Navigating through the Integrated Assistance Pathways</h3><p>Poster abstract published in the International Journal of Integrated Care, 26(S1), 545.</p><a href="https://doi.org/10.5334/ijic.ICIC25545" target="_blank" rel="noopener">DOI ↗</a></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Maturity of Local Health Units to provide Integrated Care" data-d="ICIC25 · Lisbon · 2025"><img src="../img/res-icic25-scirocco.jpg" alt="Maturity of Local Health Units to provide Integrated Care" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">ICIC25 · Lisbon · 2025</span><h3>Maturity of Local Health Units to provide Integrated Care</h3><p>Pilot study using the SCIROCCO tool. International Journal of Integrated Care, 26(S1), 541.</p><a href="https://doi.org/10.5334/ijic.ICIC25541" target="_blank" rel="noopener">DOI ↗</a></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Care and environmental impact of a decentralised blood collection point" data-d="2nd National Congress on Health and Environment · 2026"><img src="../img/cert-cnsa-v2.jpg" alt="Certificate for the poster on the decentralised blood collection point" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">2nd National Congress on Health and Environment · 2026</span><h3>Care and environmental impact of a decentralised blood collection point</h3><p>Poster presented at the Calouste Gulbenkian Foundation, Lisbon, 8–10 April 2026.</p><details class="resumo"><summary>Read the abstract</summary><p>At the Odemira Health Centre, in a large, ageing area with poor public transport, ULSLA brought hospital care to the community through three integrated services: the decentralised blood collection point, with 7,185 collection requests in 2025, an average of 37 collections a day and collections at home and in care homes for the most vulnerable people; cardiopulmonary tests (ECG, ambulatory blood pressure monitoring, Holter and spirometry); and internal medicine outpatient clinics. Decentralisation avoided trips to the Litoral Alentejano Hospital, saved fuel and reduced CO₂ emissions. According to the study’s estimate, over two years the collection point helped avoid more than half a million kilometres of travel. Conclusion: a closer, fairer and more sustainable National Health Service is possible.</p></details></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Case Management – an example from a Portuguese local health unit" data-d="ICIC24 · Belfast · 2024"><img src="../img/res-icic24.jpg" alt="Case Management – an example from a Portuguese local health unit" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">ICIC24 · Belfast · 2024</span><h3>Case Management – an example from a Portuguese local health unit</h3><p>Poster abstract published in the International Journal of Integrated Care, 25(S1), 436.</p><a href="https://doi.org/10.5334/ijic.ICIC24436" target="_blank" rel="noopener">DOI ↗</a></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Eliminating Obesity, Living Longer and Better" data-d="4th National Integrated Care Meeting · Coimbra · 2024"><img src="../img/cert-enic24-v2.jpg" alt="Certificate for the best oral presentation" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">4th National Integrated Care Meeting · Coimbra · 2024</span><h3>Eliminating Obesity, Living Longer and Better</h3><p>Certificate of recognition from PAFIC: best oral presentation.</p></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Coordination across borders" data-d="ICIC22 · Odense · 2022"><img src="../img/poster-icic22.jpg" alt="Coordination across borders" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">ICIC22 · Odense · 2022</span><h3>Coordination across borders</h3><p>Poster on coordination of care across levels, based on a case.</p><a href="https://doi.org/10.5334/ijic.ICIC22305" target="_blank" rel="noopener">DOI ↗</a></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Case management and coordination between primary and hospital care" data-d="ICIC19 · San Sebastián · 2019"><img src="../img/res-icic19.jpg" alt="Case management and coordination between primary and hospital care" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">ICIC19 · San Sebastián · 2019</span><h3>Case management and coordination between primary and hospital care</h3><p>Conference abstract published in the International Journal of Integrated Care, 19(S1), A198.</p><a href="https://doi.org/10.5334/ijic.s3198" target="_blank" rel="noopener">DOI ↗</a></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Local Health Units: the path to integration and efficiency in care" data-d="Info Saúde · 10th issue · 2024"><img src="../img/infosaude-artigo.jpg" alt="Opinion article in Info Saúde" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">Info Saúde · 10th issue · 2024</span><h3>Local Health Units: the path to integration and efficiency in care</h3><p>Opinion article (in Portuguese), with Mónica Santos and Vítor Gomes.</p></div></article>
+        <article class="card pcard rv"><button class="pthumb" type="button" data-zoom data-t="Case Management: The Beginning of a New Era in a Peripheral Portuguese Hospital" data-d="Professional Case Management · 2019"><img src="../img/artigo-pcm2019.jpg" alt="Case Management: The Beginning of a New Era in a Peripheral Portuguese Hospital" loading="lazy"><span>Enlarge</span></button><div class="pbody"><span class="pev">Professional Case Management · 2019</span><h3>Case Management: The Beginning of a New Era in a Peripheral Portuguese Hospital</h3><p>Article on the origins of ULSLA’s case management programme.</p><a href="https://doi.org/10.1097/NCM.0000000000000377" target="_blank" rel="noopener">DOI ↗</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cursos" aria-labelledby="h-cursos">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Executive education</p><h2 id="h-cursos">Leadership <span class="grad">and management</span></h2><p class="sub">Two programmes completed in 2026, alongside the master’s degree.</p></div></div>
+      <div class="courses">
+        <article class="card course rv">
+          <button class="cimg" type="button" data-zoom data-t="Leading and Energizing Teams for Performance (TEAMS 15)" data-d="Católica-Lisbon School of Business &amp; Economics, 2026."><img src="../img/catolica-teams.jpg" alt="Page of the Leading and Energizing Teams for Performance programme, Católica-Lisbon" loading="lazy"></button>
+          <div class="cbody">
+            <span class="pev">Católica-Lisbon School of Business &amp; Economics</span>
+            <h3>Leading and Energizing Teams for Performance</h3>
+            <ul class="facts"><li><b>15th edition</b>TEAMS 15</li><li><b>58 hours</b>programme</li><li><b>6 Mar – 10 Jul</b>2026</li></ul>
+            <p>The programme followed the Top Health Awards, won by ULSLA’s Case Management Programme in the Integrated Care category.</p>
+            <ul class="topics"><li>Mobilising talent and fostering collective leadership</li><li>Effective teamwork and clear communication</li><li>Problem analysis and debate of ideas</li><li>Organisational dynamics and performance management, with <em>The Five Dysfunctions of a Team</em> and <em>Leading Teams</em></li></ul>
+          </div>
+        </article>
+        <article class="card course rv">
+          <button class="cimg" type="button" data-zoom data-t="Certificate, Short Program in Management and Leadership in Health Organisations" data-d="AESE Business School, 60 hours, 17 June – 8 July 2026, Sines."><img src="../img/cert-aese-glos-v2.jpg" alt="AESE Business School certificate, Short Program in Management and Leadership in Health Organisations" loading="lazy"></button>
+          <div class="cbody">
+            <span class="pev">AESE Business School</span>
+            <h3>GLOS: Management and Leadership in Health Organisations</h3>
+            <ul class="facts"><li><b>Short Program</b>certificate</li><li><b>60 hours</b>programme</li><li><b>17 Jun – 8 Jul</b>2026, Sines</li></ul>
+            <p>Intensive programme for ULSLA professionals (doctors, nurses, managers and senior staff), using the case method (Harvard/IESE).</p>
+            <ul class="topics"><li>Real-case analysis and decision-making under uncertainty</li><li>Strategic negotiation</li><li>Team motivation and leadership styles</li><li>Clinical governance</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="percurso" aria-labelledby="h-perc">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Career</p><h2 id="h-perc">Experience <span class="grad">and education</span></h2></div></div>
+      <div class="tabs" role="tablist" aria-label="Career">
+        <button class="chip" type="button" role="tab" id="t-exp" aria-controls="p-exp" aria-selected="true">Experience</button>
+        <button class="chip" type="button" role="tab" id="t-form" aria-controls="p-form" aria-selected="false" tabindex="-1">Education and courses</button>
+      </div>
+      <div id="p-exp" role="tabpanel" aria-labelledby="t-exp">
+        <ol class="tl"><span class="track-l" aria-hidden="true"><span class="fill"></span></span>
+          <li><span class="when">2025</span><div><h3>Internal telehealth champion</h3><p>Litoral Alentejano Local Health Unit.</p></div></li>
+          <li><span class="when">2024</span><div><h3>Order of Nurses and PAFIC</h3><p>National Council of Nurses and National Technical-Scientific Advisory Committee. Board member of PAFIC.</p></div></li>
+          <li><span class="when">2017</span><div><h3>Film on case management</h3><p>Co-producer and co-director.</p></div></li>
+          <li><span class="when">2016</span><div><h3>Nurse case manager</h3><p>Design of ULSLA’s Case Management Programme for People with Complex Chronic Disease.</p></div></li>
+          <li><span class="when">2011</span><div><h3>Odemira</h3><p>Head of the Integrated Continuing Care Team (until 2018). Early Intervention and School Health teams.</p></div></li>
+          <li><span class="when">2006</span><div><h3>Clinical teaching</h3><p>External supervisor of nursing placements, Universidade Católica Portuguesa (until 2011).</p></div></li>
+          <li><span class="when">2004</span><div><h3>Curry Cabral Hospital and Instituto do Coração</h3><p>Nephrology, haemodynamics and coronary intensive care, until 2011. Nuclear medicine at the Instituto do Coração.</p></div></li>
+          <li><span class="when">2003</span><div><h3>Home care</h3><p>Almada Health Centre.</p></div></li>
+          <li><span class="when">2002</span><div><h3>Hospital Militar Principal</h3><p>Surgical observation unit.</p></div></li>
+          <li><span class="when">2000</span><div><h3>Cardiology</h3><p>Santa Cruz Hospital, Carnaxide: ward, haemodynamics, electrophysiology and coronary intensive care (until 2004).</p></div></li>
+        </ol>
+      </div>
+      <div id="p-form" role="tabpanel" aria-labelledby="t-form" hidden>
+        <ol class="tl"><span class="track-l" aria-hidden="true"><span class="fill"></span></span>
+          <li><span class="when">2026</span><div><h3>Management and Leadership in Health Organisations (GLOS)</h3><p>Short Program, AESE Business School: 60 hours, 17 June – 8 July 2026, Sines.</p></div></li>
+          <li><span class="when">2026</span><div><h3>Leading and Energizing Teams for Performance (TEAMS 15)</h3><p>Católica-Lisbon School of Business &amp; Economics: 58 hours, 6 March – 10 July 2026.</p></div></li>
+          <li><span class="when">2026</span><div><h3>Master’s in Medical-Surgical Nursing, People with Chronic Conditions</h3><p>Lisbon School of Nursing (ESEL). Master’s degree and specialist title, graded 19/20 (Excellent). Placement report graded 20/20.</p></div></li>
+          <li><span class="when">2005</span><div><h3>Postgraduate diploma in Health Management</h3><p>Universidade Moderna de Lisboa. Graded 16/20.</p></div></li>
+          <li><span class="when">2001</span><div><h3>Bachelor’s degree in Nursing</h3><p>Escola Superior de Enfermagem Artur Ravara.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="intervencoes" aria-labelledby="h-int">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="k">Talks</p><h2 id="h-int">Congresses <span class="grad">and meetings</span></h2><p class="sub">63 contributions from 2018 to 2026: talks, panels, workshops, posters, organisation and training. Titles and event details are given in their original language.</p></div>
+        <div class="chips" role="group" aria-label="Filter by year" id="talkfilter">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">All<small></small></button>
+          <button class="chip" type="button" data-f="2026" aria-pressed="false">2026<small></small></button>
+          <button class="chip" type="button" data-f="2025" aria-pressed="false">2025<small></small></button>
+          <button class="chip" type="button" data-f="2024" aria-pressed="false">2024<small></small></button>
+          <button class="chip" type="button" data-f="2023" aria-pressed="false">2023<small></small></button>
+          <button class="chip" type="button" data-f="2022" aria-pressed="false">2022<small></small></button>
+          <button class="chip" type="button" data-f="old" aria-pressed="false">2018–2021<small></small></button>
+        </div>
+      </div>
+      <div class="talks" id="talks">
+        <article class="card talk" data-y="2026"><div class="m"><span>7 Nov 2026 · APAH</span><span class="r">Panel</span></div><h3>Integrar para não desperdiçar: a coordenação de cuidados como motor de eficiência</h3><p>Conferências de Valor APAH 2026, pela PAFIC, a partir do 3.º Barómetro de Integração de Cuidados.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>6 Nov 2026 · Vila Nova de Gaia</span><span class="r">Speaker</span></div><h3>Gestão de caso: um modelo de integração assente nas competências do enfermeiro gestor de caso</h3><p>I Congresso Nacional da APEE, sessão «Cuidar sem barreiras: integração, transição e continuidade de cuidados».</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>8 Oct 2026 · Lisboa</span><span class="r">Speaker</span></div><h3>Cuidados domiciliários: modelos de negócio e clínicas lideradas por enfermeiros</h3><p>16.º Congresso Internacional da APEGEL e 2.º Seminário Ibero-Americano de Empreendedores em Enfermagem, pela Ordem dos Enfermeiros.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>1–2 Oct 2026 · Campo Maior e Elvas</span><span class="r b">Organiser</span></div><h3>VI Encontro Nacional e I Encontro Ibérico de Integração de Cuidados</h3><p>Comissão organizadora, workshop «Coordenação entre a Saúde e as ERPI» e lançamento do Handbook de Gestão de Caso.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>Sep 2026 · SPLS</span><span class="r">Contribution</span></div><h3>As palavras têm poder</h3><p>Contributo para a Sociedade Portuguesa de Literacia em Saúde no Mês de Prevenção do Suicídio.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>25 Sep 2026 · Figueira da Foz</span><span class="r">Speaker</span></div><h3>Integração de cuidados na transformação do sistema de saúde</h3><p>1.º Congresso de Gestão dos Serviços de Urgência, Mesa 1, pela PAFIC.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>24 Sep 2026 · Estoril</span><span class="r">Speaker</span></div><h3>Gestão de caso e coordenação da pessoa com complexidade</h3><p>Cascais International Health Forum, sessão «Modelos Integrados de Cuidados para Populações Longevas».</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>19 Jun 2026 · Barcelos/Esposende (online)</span><span class="r">Speaker</span></div><h3>A gestão de caso e o enfermeiro gestor de caso</h3><p>I Fórum do Núcleo de Enfermagem de Reabilitação da ULS Barcelos/Esposende, «Reabilitar ao Longo do Ciclo de Vida».</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>3 Jun 2026 · Lisboa</span><span class="r">Opening speaker</span></div><h3>Gestão da doença crónica: uma abordagem integrada entre saúde, território e respostas sociais</h3><p>Seminário «Serviço Social na Saúde – Um Diálogo de Coconstrução entre o Social e a Saúde», IPPS-Iscte.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>2026 · SIP Portugal</span><span class="r">Round table</span></div><h3>A pessoa com dor no centro da decisão</h3><p>Fórum «Dor Crónica: Responsabilidade Partilhada, Resposta Integrada», orador convidado.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>28 May 2026 · Ordem dos Enfermeiros</span><span class="r">Oral presentation</span></div><h3>Sintomas experienciados pela pessoa com multimorbilidade que vive em casa</h3><p>Jornadas Internacionais de Investigação em Enfermagem.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>13–15 May 2026 · Rio de Janeiro</span><span class="r b">Organiser and speaker</span></div><h3>2.º Summit de Integração de Cuidados dos Países de Língua Portuguesa</h3><p>Comissão organizadora e científica. Sessão IX, «Trabalho em Equipa: Onde a Integração Acontece», pela Ordem dos Enfermeiros.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>30 Apr 2026 · Universidade de Coimbra</span><span class="r">Trainer</span></div><h3>Integração de cuidados na educação terapêutica</h3><p>Formação Especializada de Educação Terapêutica em Cardiologia: colaboração na elaboração do Módulo 2.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>8–10 Apr 2026 · Fundação Calouste Gulbenkian</span><span class="r">Poster</span></div><h3>Impacto assistencial e ambiental do posto de colheitas descentralizado</h3><p>2.º Congresso Nacional da Saúde e Ambiente, «Juntos pela saúde das pessoas e do planeta».</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>27 Mar 2026 · Leiria</span><span class="r">Panel</span></div><h3>Integração de cuidados: a mudança organizacional necessária</h3><p>2.º Encontro de Enfermagem da ULS da Região de Leiria, «Enfermagem: evidência e inovação», painel «Integração de cuidados: desafios e oportunidades».</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>25–26 Mar 2026 · Carnaxide</span><span class="r">Panel</span></div><h3>O impacto estrutural da enfermagem nos modelos de saúde do século XXI</h3><p>Congresso Nacional de Enfermagem 2026.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>16 Mar 2026 · ACSS</span><span class="r">Co-author</span></div><h3>Heart Failure and Multimorbidity Clinical Pathways</h3><p>Em inglês, com Mónica Santos.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>28 Feb 2026 · Congresso de Estomaterapia</span><span class="r">Speaker</span></div><h3>Integração de cuidados em estomaterapia</h3><p>Congresso Nacional de Estomaterapia 2026, pela PAFIC.</p></article>
+        <article class="card talk" data-y="2026"><div class="m"><span>Jan 2026 · ULSLA</span><span class="r">Trainer</span></div><h3>Cuidar na Complexidade</h3><p>1.º curso de e-learning da SPMS na ULSLA, para todos os profissionais, desenvolvido no mestrado com a tutoria de Helga Rafael Henriques.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>28 Nov 2025 · Fundação Calouste Gulbenkian</span><span class="r b">Participant</span></div><h3>Cerimónia do Programa IMPULSO</h3><p>Gala na Fundação Calouste Gulbenkian, com a apresentação dos percursos assistenciais integrados da ULSLA. Focal point da ULSLA no eixo da integração de cuidados nos cuidados de saúde primários.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>Jun–Nov 2025 · ULS de Loures e Odivelas</span><span class="r b">Mentoring</span></div><h3>Percursos assistenciais integrados</h3><p>Mentoria de oito percursos, com a AESE, e encontro final ELOS «Integração é coesão».</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>13–14 Nov 2025 · Matosinhos</span><span class="r b">Organiser and workshop</span></div><h3>V Encontro Nacional de Integração de Cuidados</h3><p>Comissão organizadora. Workshop «Autogestão em Casos Complexos – O Avesso da Teoria», com Vanessa Nicolau.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>Nov 2025 · Odemira</span><span class="r">Training</span></div><h3>Capacitação da população migrante sobre doenças cardiovasculares</h3><p>Projeto Cultivando Saúde, com role-play, numa empresa agrícola.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>31 Oct 2025 · ULSLA</span><span class="r">Oral presentation</span></div><h3>Sintomas experienciados pela pessoa com multimorbilidade que vive em casa</h3><p>I Encontro do Núcleo de Enfermagem de Especialidade Médico-Cirúrgica da ULSLA.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>9 Oct 2025 · Beja</span><span class="r">Lecture</span></div><h3>Integração de cuidados nas Unidades Locais de Saúde</h3><p>I Jornadas do Núcleo de Enfermagem de Reabilitação da ULS do Baixo Alentejo, Instituto Politécnico de Beja.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>Sep 2025 · ESEL e PAFIC</span><span class="r">Trainer</span></div><h3>Microcredencial Enfermeiro(a) Gestor(a) de Caso para Pessoas em Situação de Cronicidade Complexa</h3><p>Com Helga Rafael Henriques, Hélder Carreira e Maurício Alves.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>Sep 2025 · Santiago do Cacém</span><span class="r">Co-author</span></div><h3>Consulta Integrada de Multimorbilidade</h3><p>Com Cátia Albino.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>30 Jul 2025 · Aveiro</span><span class="r">Focus group</span></div><h3>Cuidados de saúde primários e integração de cuidados</h3><p>Programa IMPULSO, ACSS, com a OMS e a Universidade de Aveiro.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>Jul 2025 · ENSP NOVA</span><span class="r">Presentation</span></div><h3>«Viver Mais, Viver Melhor»</h3><p>Workshop sobre Gestão Autárquica em Saúde, com o Município de Odemira.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>2 Jun 2025 · Lisboa</span><span class="r">Speaker</span></div><h3>Enfermagem avançada: enfermeiro gestor de caso</h3><p>II Seminário Internacional dos Mestrados em Enfermagem, Escola Superior de Saúde da Cruz Vermelha Portuguesa.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>14–16 May 2025 · Lisboa</span><span class="r b">Organiser</span></div><h3>25.ª International Conference on Integrated Care (ICIC25)</h3><p>Comissão organizadora local, pela PAFIC, no Centro Cultural de Belém. Coautor de dois pósteres.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>13 May 2025 · Odemira</span><span class="r b">Organiser</span></div><h3>Visita de estudo do ICIC25 à ULSLA</h3><p>Doutorandos em cuidados integrados, com Ferdy Pluck (HU Utrecht), em formato World Café.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>12 May 2025 · ULSLA</span><span class="r b">Organiser</span></div><h3>Dia Internacional do Enfermeiro</h3><p>Convite a oradores sobre literacia digital, inteligência artificial e telessaúde.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>9 May 2025 · Açores</span><span class="r">Panel</span></div><h3>A gestão da saúde/doença: modelos e ferramentas</h3><p>2.º Congresso de Enfermagem dos Açores, Secção Regional da Ordem dos Enfermeiros.</p></article>
+        <article class="card talk" data-y="2025"><div class="m"><span>21–22 Jan 2025 · Figueira da Foz</span><span class="r">Speaker</span></div><h3>Gestão de caso na pessoa com doença crónica complexa: um modelo organizacional</h3><p>I Congresso Internacional do NEEMC da ULS do Baixo Mondego, Mesa 5.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>6 Dec 2024 · Espinho</span><span class="r">Workshop</span></div><h3>Gestor de caso: metodologia inovadora na prestação de cuidados de enfermagem de reabilitação</h3><p>Congresso Internacional de Enfermagem de Reabilitação’24, APER, com Manuela Martins.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>23 Nov 2024 · Fátima</span><span class="r">Round table</span></div><h3>Saúde Próxima – Gestão da Doença Crónica</h3><p>III Convenção Internacional dos Enfermeiros, Mesa 5.4, e comunicação livre «Gestão de caso: uma experiência portuguesa».</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>20 Nov 2024 · Vila Nova de Santo André</span><span class="r b">Organiser</span></div><h3>Dia Mundial da DPOC</h3><p>Sessão pública de esclarecimento sobre a DPOC.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>31 Oct 2024 · ULS da Lezíria</span><span class="r">Knowledge exchange</span></div><h3>Intercâmbio de conhecimento entre a ULSLA e a ULS da Lezíria</h3><p>Com Mónica Santos.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>Oct 2024 · Leiria</span><span class="r">Panel</span></div><h3>Projetos inovadores na integração de cuidados</h3><p>I Encontro de Enfermagem da ULS da Região de Leiria.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>10–11 Oct 2024 · Coimbra</span><span class="r b">Organiser and award</span></div><h3>IV Encontro Nacional de Integração de Cuidados</h3><p>Comissão organizadora, póster sobre o modelo de gestão de caso e melhor comunicação oral com «Eliminando a Obesidade, Vivendo Mais e Melhor».</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>Jul 2024 · São Teotónio</span><span class="r">Community</span></div><h3>Rastreio do cancro oral e da pele</h3><p>109 pessoas rastreadas, com o Município de Odemira e a Liga Portuguesa Contra o Cancro. Cultivando Saúde na FACECO.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>16 May 2024 · Leiria</span><span class="r">Speaker</span></div><h3>Percursos assistenciais integrados e gestão de caso</h3><p>Encontro dos Cuidados de Saúde Primários da ULS da Região de Leiria, com Mónica Santos.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>10 May 2024 · Ordem dos Enfermeiros</span><span class="r">Webinar</span></div><h3>Domiciliação e integração de cuidados</h3><p>Ciclo de webinars do Colégio da Especialidade de Enfermagem Médico-Cirúrgica, para mais de 500 enfermeiros.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>22–24 Apr 2024 · Belfast</span><span class="r">Poster</span></div><h3>Case Management – an example from a Portuguese local health unit</h3><p>24th International Conference on Integrated Care.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>25 Mar 2024 · ULS do Alentejo Central</span><span class="r">Webinar</span></div><h3>Integração de cuidados: modelos organizacionais para a prestação de cuidados</h3><p>Para os enfermeiros das ULS do SNS.</p></article>
+        <article class="card talk" data-y="2024"><div class="m"><span>29 Feb 2024 · Online</span><span class="r">Webinar</span></div><h3>O digital como alavanca à integração de cuidados</h3><p>O percurso assistencial integrado da pessoa com insuficiência cardíaca da ULSLA.</p></article>
+        <article class="card talk" data-y="2023"><div class="m"><span>14 Dec 2023 · Lisboa</span><span class="r">Speaker</span></div><h3>Integração de cuidados: não há missões impossíveis</h3><p>VIII Encontro – Histórias da Segurança do Doente, Centro Hospitalar Universitário de Lisboa Central.</p></article>
+        <article class="card talk" data-y="2023"><div class="m"><span>25 Nov 2023 · Setúbal</span><span class="r">Round table</span></div><h3>O papel do enfermeiro como gestor de caso</h3><p>XXX Jornadas de Medicina Interna de Setúbal, mesa «Integração de Cuidados em Enfermagem», com Vítor Gomes.</p></article>
+        <article class="card talk" data-y="2023"><div class="m"><span>12–13 Oct 2023 · Lisboa</span><span class="r">Speaker</span></div><h3>O Programa de Gestão de Caso da Pessoa com Doença Crónica Complexa</h3><p>18.ª Conferência Nacional de Economia da Saúde, APES, sessões de inovação e investigação.</p></article>
+        <article class="card talk" data-y="2023"><div class="m"><span>19 May 2023 · Almada</span><span class="r">Panel</span></div><h3>Integração de cuidados: ULS, que perspetiva?</h3><p>Encontro dos Enfermeiros do ACeS Almada-Seixal.</p></article>
+        <article class="card talk" data-y="2023"><div class="m"><span>22 Mar 2023 · Odemira</span><span class="r">Training</span></div><h3>Capacitação da população migrante</h3><p>Fatores de risco cardiovascular, com a equipa de gestão de caso de Odemira e parceiros da comunidade.</p></article>
+        <article class="card talk" data-y="2023"><div class="m"><span>10 Feb 2023 · Assembleia da República</span><span class="r">Panel</span></div><h3>Gestão de doentes crónicos e continuidade de cuidados</h3><p>Conferência «Unidades Locais de Saúde: aproximar os serviços de saúde dos cidadãos».</p></article>
+        <article class="card talk" data-y="2022"><div class="m"><span>24–25 Nov 2022 · Aveiro</span><span class="r">Workshop</span></div><h3>Gestão de caso na pessoa com doença crónica complexa na ULSLA</h3><p>II Encontro Nacional de Integração de Cuidados. O programa foi finalista do Integrated Care Award.</p></article>
+        <article class="card talk" data-y="2022"><div class="m"><span>7–12 Nov 2022 · ULSLA</span><span class="r b">Organiser</span></div><h3>Semana da Qualidade em Saúde</h3><p>«Literacia em saúde, um direito e uma responsabilidade», com os cinco municípios do Litoral Alentejano.</p></article>
+        <article class="card talk" data-y="2022"><div class="m"><span>21 Oct 2022 · Lisboa</span><span class="r">Panel</span></div><h3>O presente e o futuro no cuidado à pessoa em situação crónica</h3><p>Encontro Benchmarking do Colégio da Especialidade de Enfermagem Médico-Cirúrgica, Ordem dos Enfermeiros.</p></article>
+        <article class="card talk" data-y="2022"><div class="m"><span>Sep 2022 · TAIPA, Odemira</span><span class="r">Panel</span></div><h3>Gestão de caso: do trabalho em rede à integração de cuidados</h3><p>Painel «Intervenção social, envelhecimento, (in)dependências e longevidade».</p></article>
+        <article class="card talk" data-y="2022"><div class="m"><span>23–25 May 2022 · Odense</span><span class="r">Poster</span></div><h3>Coordination across borders</h3><p>22nd International Conference on Integrated Care.</p></article>
+        <article class="card talk" data-y="2022"><div class="m"><span>21 May 2022 · Odemira</span><span class="r">Speaker</span></div><h3>Pensar a saúde de forma integrada, proativa e centrada na pessoa</h3><p>3.ª sessão do Fórum Território.</p></article>
+        <article class="card talk" data-y="old"><div class="m"><span>26 May 2021 · APAH</span><span class="r">Workshop</span></div><h3>Lost in Translation: os cuidados com a transição na transição de cuidados</h3><p>9.ª Conferência de Valor da APAH, workshop da PAFIC, com o Programa de Gestão de Caso.</p></article>
+        <article class="card talk" data-y="old"><div class="m"><span>6 Nov 2020 · CPC 2020</span><span class="r">Round table</span></div><h3>Gestor de caso nos cuidados de saúde primários em utentes crónicos, complexos e com multimorbilidade</h3><p>Mesa «O cuidado partilhado nos serviços de saúde: juntos pela qualidade».</p></article>
+        <article class="card talk" data-y="old"><div class="m"><span>1–3 Apr 2019 · San Sebastián</span><span class="r">Oral presentation</span></div><h3>Case management and coordination between primary and hospital care</h3><p>19th International Conference on Integrated Care.</p></article>
+        <article class="card talk" data-y="old"><div class="m"><span>Nov 2018 · APDH</span><span class="r">Oral presentation</span></div><h3>Case Management – Intervention Model for Emergency Service Frequent Users</h3><p>Encontro de Boas Práticas em Saúde. Trabalho vencedor do 1.º prémio.</p></article>
+      </div>
+      <div class="more-wrap"><button class="btn ghost" type="button" id="moreTalks">Show all talks</button></div>
+    </div>
+  </section>
+
+  <section class="sec" id="imagens" aria-labelledby="h-img">
+    <div class="wrap">
+      <div class="head"><div><p class="k">In pictures</p><h2 id="h-img">Moments <span class="grad">from 2023 to 2026</span></h2><p class="sub">Tap a photo to enlarge it. Use the arrows to browse.</p></div></div>
+      <div class="gallery" id="gallery">
+        <button class="shot t" type="button" data-zoom data-t="2nd Summit of Portuguese-Speaking Countries" data-d="Rio de Janeiro, May 2026, for the Portuguese Order of Nurses."><img src="../img/foto-rio-orador.jpg" alt="2nd Summit of Portuguese-Speaking Countries" loading="lazy"><span>2nd Summit of Portuguese-Speaking Countries</span></button>
+        <button class="shot w t" type="button" data-zoom data-t="The IMPULSO trophies" data-d="IMPULSO Awards 2026."><img src="../img/foto-impulso-trofeus.jpg" alt="The IMPULSO trophies" loading="lazy"><span>The IMPULSO trophies</span></button>
+        <button class="shot t" type="button" data-zoom data-t="Rio de Janeiro" data-d="2nd Integrated Care Summit, organising and scientific committee."><img src="../img/foto-rio-summit.jpg" alt="Rio de Janeiro" loading="lazy"><span>Rio de Janeiro</span></button>
+        <button class="shot w" type="button" data-zoom data-t="IPPS-Iscte seminar" data-d="Opening speaker at the seminar “Social Work in Health”, June 2026."><img src="../img/foto-iscte.jpg" alt="IPPS-Iscte seminar" loading="lazy"><span>IPPS-Iscte seminar</span></button>
+        <button class="shot w" type="button" data-zoom data-t="Cuidar na Complexidade" data-d="First SPMS e-learning course at ULSLA, January 2026."><img src="../img/foto-elearning.jpg" alt="Caring in Complexity course" loading="lazy"><span>Cuidar na Complexidade</span></button>
+        <button class="shot w" type="button" data-zoom data-t="IMPULSO ceremony 2025" data-d="Ceremony at the Calouste Gulbenkian Foundation, November 2025, with the integrated care pathways."><img src="../img/foto-impulso-2025.jpg" alt="IMPULSO programme ceremony at the Calouste Gulbenkian Foundation" loading="lazy"><span>IMPULSO ceremony 2025</span></button>
+        <button class="shot w" type="button" data-zoom data-t="ICIC25 study visit" data-d="PhD students in integrated care at ULSLA, Odemira, 2025."><img src="../img/foto-studyvisit.jpg" alt="ICIC25 study visit" loading="lazy"><span>ICIC25 study visit</span></button>
+        <button class="shot w" type="button" data-zoom data-t="National Health Economics Conference" data-d="APES, Lisbon, October 2023."><img src="../img/foto-apes.jpg" alt="National Health Economics Conference" loading="lazy"><span>National Health Economics Conference</span></button>
+        <button class="shot w" type="button" data-zoom data-t="Patient Safety Stories" data-d="CHULC, Lisbon, December 2023."><img src="../img/foto-chulc.jpg" alt="Patient Safety Stories" loading="lazy"><span>Patient Safety Stories</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ensino" aria-labelledby="h-ens">
+    <div class="wrap">
+      <div class="head"><div><p class="k">Teaching and roles</p><h2 id="h-ens">Teaching <span class="grad">and service</span></h2></div></div>
+      <div class="roles">
+        <div class="card role rv"><h3 class="mini-h">Teaching and training</h3><ul>
+          <li><strong>Postgraduate Course in Case Management</strong><span>Guest lecturer. NOVA National School of Public Health with ESEUL, 2027 edition.</span></li>
+          <li><strong>Postgraduate Course in Tissue Viability and Wounds</strong><span>Course unit lead, Red Cross School of Nursing.</span></li>
+          <li><strong>Master’s in Nursing for People with Chronic Conditions</strong><span>Contributor, Lisbon School of Nursing (ESEL).</span></li>
+          <li><strong>Nurse Case Manager micro-credential</strong><span>Trainer. ESEL with PAFIC (2025).</span></li>
+          <li><strong>“Caring in Complexity”</strong><span>Developed and delivered the first SPMS e-learning course at ULSLA (2026), for all staff.</span></li>
+          <li><strong>Therapeutic Education in Cardiology</strong><span>Contributor to Module 2, “Integrated Care”, of the University of Coimbra specialist course (2026).</span></li>
+          <li><strong>Care pathways mentoring</strong><span>Loures-Odivelas Local Health Unit, with AESE (2025).</span></li>
+        </ul></div>
+        <div class="card role rv"><h3 class="mini-h">Professional bodies</h3><ul>
+          <li><strong>Portuguese Order of Nurses</strong><span>National Council of Nurses and National Technical-Scientific Advisory Committee (2024–2027).</span></li>
+          <li><strong>Working group on chronic disease</strong><span>Representative of the Order in the group coordinated by the Directorate-General of Health (Order no. 11649/2025).</span></li>
+          <li><strong>PAFIC</strong><span>Board member since 2024.</span></li>
+        </ul></div>
+        <div class="card role rv"><h3 class="mini-h">Litoral Alentejano Local Health Unit</h3><ul>
+          <li><strong>Integrated Care Unit</strong><span>And management board of the Chronic Disease Centre (CED-DCC).</span></li>
+          <li><strong>Telemonitoring Coordination Unit</strong><span>And internal telehealth champion.</span></li>
+          <li><strong>IMPULSO programme (ACSS and WHO/Europe)</strong><span>ULSLA focal point for integrated care in primary health care (2025).</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="musica" aria-labelledby="h-mus">
+    <div class="wrap">
+      <div class="card song rv">
+        <div class="song-art" aria-hidden="true"><div class="eq"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="song-body">
+          <p class="k">Music</p>
+          <h2 id="h-mus">Songs that <span class="grad">stay with me</span></h2>
+          <ol class="tracks" id="tracks">
+            <li><button type="button" class="trk" data-yt="fTX34AIXUJw" data-t="Enquanto cá estou, JusDi"><span class="tn">01</span><span class="tt"><b>Enquanto cá estou</b><small>JusDi · 2026</small></span><span class="td">2:34</span><span class="tp" aria-hidden="true">▶</span></button></li>
+            <li><button type="button" class="trk" data-yt="JQ4mFaI17pk" data-t="I Won’t Complain, Benjamin Clementine"><span class="tn">02</span><span class="tt"><b>I Won’t Complain</b><small>Benjamin Clementine · 2016</small></span><span class="td">4:41</span><span class="tp" aria-hidden="true">▶</span></button></li>
+            <li><button type="button" class="trk" data-yt="68IJ6ei60OY" data-t="When I Stand, Owen James"><span class="tn">03</span><span class="tt"><b>When I Stand</b><small>Owen James · 2026</small></span><span class="td">3:20</span><span class="tp" aria-hidden="true">▶</span></button></li>
+          </ol>
+          <div class="song-frame" id="songFrame" hidden></div>
+          <a class="song-yt" id="songYt" href="https://youtu.be/fTX34AIXUJw" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto" aria-labelledby="h-con">
+    <div class="wrap">
+      <div class="cta rv"><div class="cta-in">
+        <div>
+          <p class="k">Contact</p>
+          <h2 id="h-con">Let’s <span class="grad">talk</span></h2>
+          <p>Invitations to congresses, training or collaboration on case management and integrated care projects: send me a message on LinkedIn.</p>
+          <div class="mail"><a class="btn main mag" href="https://www.linkedin.com/in/hugo-felgueiras-mendon%C3%A7a-5007a2195" target="_blank" rel="noopener">Message me on LinkedIn ↗</a></div>
+          <div class="socials"><a href="https://www.linkedin.com/in/hugo-felgueiras-mendon%C3%A7a-5007a2195" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://www.almedina.net/handbook-de-gestao-de-caso-1788228260.html" target="_blank" rel="noopener">Handbook ↗</a><a href="https://youtu.be/QTIQaIXtd24" target="_blank" rel="noopener">Film ↗</a><a href="../biographical-note.pdf" target="_blank" rel="noopener">Biographical note and CV (PDF) ↗</a></div>
+        </div>
+        <div class="ph"><img src="../img/foto-caminho.jpg" alt="Hugo Mendonça from behind, arms open, on a path between moss-covered stone walls and trees" loading="lazy" width="1000" height="1095"></div>
+      </div></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>Hugo Mendonça, RN, MSc</span><span>Updated November 2026</span></div></footer>
+<button class="top" id="top" type="button" aria-label="Back to top">↑</button>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button class="c x" type="button" id="lbx" aria-label="Close">✕</button>
+  <button class="c p" type="button" id="lbp" aria-label="Previous photo">←</button>
+  <img id="lbimg" alt="">
+  <button class="c n" type="button" id="lbn" aria-label="Next photo">→</button>
+  <div class="cap" id="lbcap"></div>
+</div>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  // Funções que rodam no papel
+  var roles = ['Nurse case manager', 'Multimorbidity researcher', 'Co-editor, Handbook de Gestão de Caso', 'Trainer and lecturer', 'National Council of Nurses member'];
+  var roleEl = $('#role');
+  if (!reduce && roleEl) {
+    var ri = 0, ci = roles[0].length, del = true;
+    (function tick() {
+      var w = roles[ri];
+      if (del) { ci--; roleEl.textContent = w.slice(0, ci); if (ci <= 0) { del = false; ri = (ri + 1) % roles.length; } setTimeout(tick, 28); }
+      else { var nw = roles[ri]; ci++; roleEl.textContent = nw.slice(0, ci); if (ci >= nw.length) { del = true; setTimeout(tick, 2400); } else setTimeout(tick, 55); }
+    })();
+  }
+
+  // Progresso, topo, ligação ativa e indicador do menu
+  var bar = $('#progress'), top = $('#top'), links = $$('#links a'), ind = $('#ind');
+  function moveInd(a) {
+    if (!ind || !a) { if (ind) ind.style.opacity = 0; return; }
+    var ul = a.closest('ul').getBoundingClientRect(), r = a.getBoundingClientRect();
+    ind.style.width = r.width + 'px'; ind.style.transform = 'translateX(' + (r.left - ul.left) + 'px)'; ind.style.opacity = 1;
+  }
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+    top.classList.toggle('show', scrollY > 800);
+    var cur = null;
+    links.forEach(function (a) { var s = $(a.getAttribute('href')); if (s && s.getBoundingClientRect().top < innerHeight * .4) cur = a; });
+    links.forEach(function (a) { a.classList.toggle('on', a === cur); });
+    moveInd(cur);
+    fillTimeline();
+  }
+  addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll);
+  top.addEventListener('click', function () { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+  // Menu móvel
+  var sheet = $('#sheet'), mb = $('#menuBtn');
+  function openSheet(o) { sheet.hidden = !o; mb.setAttribute('aria-expanded', o); if (o) $('#sheetClose').focus(); else mb.focus(); }
+  mb.addEventListener('click', function () { openSheet(true); });
+  $('#sheetClose').addEventListener('click', function () { openSheet(false); });
+  $$('#sheet a').forEach(function (a) { a.addEventListener('click', function () { sheet.hidden = true; mb.setAttribute('aria-expanded', false); }); });
+
+  // Luz que segue o cursor nos cartões
+  if (fine) document.addEventListener('pointermove', function (e) {
+    var c = e.target.closest && e.target.closest('.card'); if (!c) return;
+    var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }, { passive: true });
+
+  // Botões magnéticos
+  if (fine && !reduce) $$('.mag').forEach(function (b) {
+    b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3) + 'px)'; });
+    b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+  });
+
+  // Retrato: cartões em paralaxe
+  var por = $('#portrait');
+  if (por && fine && !reduce) {
+    var tags = $$('.tagf', por);
+    addEventListener('pointermove', function (e) {
+      var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+      tags.forEach(function (t) { var d = +t.dataset.d; t.style.transform = 'translate(' + (x * d) + 'px,' + (y * d) + 'px)'; });
+    }, { passive: true });
+  }
+
+  // Capas em 3D
+  if (!reduce) $$('[data-tilt]').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = 'rotateY(' + (x * 18) + 'deg) rotateX(' + (-y * 14) + 'deg) scale(1.03)'; });
+    c.addEventListener('pointerleave', function () { c.style.transform = ''; });
+  });
+
+  // Entrada ao rolar e contadores (o HTML já tem o valor final)
+  if (!reduce && 'IntersectionObserver' in window) {
+    var below = $$('.rv').filter(function (el) { return el.getBoundingClientRect().top > innerHeight; });
+    below.forEach(function (el) { el.classList.add('pre'); });
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var el = e.target; var i = below.indexOf(el); setTimeout(function () { el.classList.remove('pre'); }, (i % 4) * 70); io.unobserve(el); } }); }, { rootMargin: '0px 0px -6% 0px' });
+    below.forEach(function (el) { io.observe(el); });
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return; io2.unobserve(e.target);
+        var el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null;
+        (function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 1400); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 4))) + suf; if (k < 1) requestAnimationFrame(step); })(performance.now());
+      });
+    }, { threshold: .6 });
+    $$('[data-count]').forEach(function (el) { if (el.getBoundingClientRect().top > innerHeight) io2.observe(el); });
+  }
+
+  // Prémios: acordeão
+  $$('.aw').forEach(function (a) {
+    var b = $('button', a);
+    b.addEventListener('click', function () { var o = !a.classList.contains('open'); a.classList.toggle('open', o); b.setAttribute('aria-expanded', o); });
+  });
+
+  // Publicações: filtro e pesquisa
+  var pubs = $$('#pubs .pub'), q = $('#q'), pf = 'all', empty = $('#empty');
+  function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function applyPubs() {
+    var t = norm(q.value.trim()), n = 0;
+    pubs.forEach(function (p) { var ok = (pf === 'all' || p.dataset.c === pf) && (!t || norm(p.textContent).indexOf(t) > -1); p.hidden = !ok; if (ok) n++; });
+    empty.hidden = n > 0;
+  }
+  $$('#pubfilter .chip').forEach(function (b, _, all) {
+    var f = b.dataset.f; $('small', b).textContent = f === 'all' ? pubs.length : pubs.filter(function (p) { return p.dataset.c === f; }).length;
+    b.addEventListener('click', function () { pf = f; all.forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); applyPubs(); });
+  });
+  q.addEventListener('input', applyPubs);
+
+  // Intervenções: filtro por ano
+  var talks = $$('#talks .talk'), moreBtn = $('#moreTalks'), tf = 'all', expanded = false, LIMIT = 12;
+  function applyTalks() {
+    var shown = 0;
+    talks.forEach(function (t) {
+      var ok = tf === 'all' || t.dataset.y === tf;
+      if (ok && tf === 'all' && !expanded && shown >= LIMIT) ok = false;
+      t.hidden = !ok; if (ok) shown++;
+    });
+    moreBtn.parentNode.hidden = !(tf === 'all' && !expanded && talks.length > LIMIT);
+  }
+  $$('#talkfilter .chip').forEach(function (b, _, all) {
+    var f = b.dataset.f; $('small', b).textContent = f === 'all' ? talks.length : talks.filter(function (t) { return t.dataset.y === f; }).length;
+    b.addEventListener('click', function () { tf = f; all.forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); applyTalks(); });
+  });
+  moreBtn.addEventListener('click', function () { expanded = true; applyTalks(); });
+  applyTalks();
+
+  // Percurso: separadores e linha que se preenche
+  var tabs = $$('[role="tab"]');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !on; }); fillTimeline(); });
+    t.addEventListener('keydown', function (e) { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; var i = tabs.indexOf(t), n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click(); });
+  });
+  function fillTimeline() {
+    $$('.tl').forEach(function (tl) {
+      if (tl.closest('[hidden]')) return;
+      var r = tl.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight * .6 - r.top) / r.height));
+      var fill = $('.fill', tl); if (fill) fill.style.transform = 'scaleY(' + (reduce ? 1 : p) + ')';
+      $$('li', tl).forEach(function (li) { li.classList.toggle('lit', reduce || li.getBoundingClientRect().top < innerHeight * .6); });
+    });
+  }
+
+  // Galeria
+  var shots = $$('[data-zoom]'), lb = $('#lb'), li = $('#lbimg'), cap = $('#lbcap'), cur = 0, last = null;
+  function show(i) { cur = (i + shots.length) % shots.length; var s = shots[cur], im = $('img', s); li.src = im.src; li.alt = im.alt; cap.textContent = ''; var b = document.createElement('b'); b.textContent = s.dataset.t; cap.appendChild(b); cap.appendChild(document.createTextNode(s.dataset.d)); }
+  shots.forEach(function (s, i) { s.addEventListener('click', function () { last = s; show(i); lb.hidden = false; $('#lbx').focus(); }); });
+  function close() { lb.hidden = true; if (last) last.focus(); }
+  $('#lbx').addEventListener('click', close);
+  $('#lbp').addEventListener('click', function () { show(cur - 1); });
+  $('#lbn').addEventListener('click', function () { show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  var tx = null; lb.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) { if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); tx = null; });
+  addEventListener('keydown', function (e) {
+    if (!lb.hidden) { if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(cur - 1); else if (e.key === 'ArrowRight') show(cur + 1); }
+    else if (!sheet.hidden && e.key === 'Escape') openSheet(false);
+  });
+
+  onScroll();
+})();
+
+// Música: só carrega o leitor do YouTube quando a pessoa escolhe uma faixa
+(function () {
+  var f = document.getElementById('songFrame'), yt = document.getElementById('songYt');
+  var btns = document.querySelectorAll('#tracks .trk');
+  if (!f || !btns.length) return;
+  btns.forEach(function (b) {
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () {
+      var id = b.getAttribute('data-yt');
+      f.innerHTML = '';
+      var i = document.createElement('iframe');
+      i.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      i.title = b.getAttribute('data-t');
+      i.allow = 'autoplay; encrypted-media; picture-in-picture';
+      i.allowFullscreen = true;
+      f.appendChild(i);
+      f.hidden = false;
+      yt.href = 'https://youtu.be/' + id;
+      btns.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); o.querySelector('.tp').textContent = o === b ? '♪' : '▶'; });
+      b.closest('.song').classList.add('playing');
+    });
+  });
+})();
+</script>
+</body>
+</html>
