@@ -383,6 +383,16 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .sk.wide { grid-column: span 2; }
 .sk { background: #05080B; }
 .sk.big img { object-position: 50% 55%; }
+.skygrid + .skyvid { margin-top: 1rem; }
+.skyvid { position: relative; margin: 0; border-radius: var(--r); overflow: hidden; background: #05080B; border: 1px solid var(--line); }
+.skyvid video { display: block; width: 100%; height: auto; aspect-ratio: 1280 / 854; object-fit: cover; }
+.skyvid figcaption { position: absolute; inset: auto 0 0 0; padding: 3rem 1.2rem 1rem; background: linear-gradient(transparent, rgba(5,8,11,.85)); color: #F2F6F8; display: flex; flex-direction: column; gap: .15rem; pointer-events: none; }
+.skyvid figcaption b { font-weight: 600; }
+.skyvid figcaption span { font-size: .85rem; opacity: .85; }
+.vbtn { all: unset; box-sizing: border-box; position: absolute; top: 1rem; right: 1rem; z-index: 2; width: 2.8rem; height: 2.8rem; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.88); color: #152231; font-size: .9rem; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.vbtn:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+@media (max-width: 760px) { .sk.mw { grid-column: span 2; } }
+
 @media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } }
 
 /* Entrada ao rolar (só depois do primeiro ecrã) */
@@ -767,13 +777,20 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 
   <section class="sec" id="ceu" aria-labelledby="h-ceu">
     <div class="wrap">
-      <div class="head"><div><p class="k">After hours</p><h2 id="h-ceu">The sky <span class="grad">I photograph</span></h2><p class="sub">My own photographs, of the Alentejo and of deep space. Tap a photo to enlarge it.</p></div></div>
+      <div class="head"><div><p class="k">After hours</p><h2 id="h-ceu">The sky <span class="grad">I photograph</span></h2><p class="sub">My own photographs of the Alentejo and of deep space, and a timelapse in Mértola. Tap a photo to enlarge it.</p></div></div>
       <div class="skygrid">
         <button class="shot sk tall" type="button" data-zoom data-t="The Milky Way over the coast" data-d="Zambujeira do Mar, 2024."><img src="../img/ceu-via-lactea.jpg" alt="The Milky Way over the rocks and beach at Zambujeira do Mar, at night" loading="lazy" width="1200" height="1515"><span>The Milky Way over the coast</span></button>
         <button class="shot sk wide tall big" type="button" data-zoom data-t="Moon over the sea" data-d="Zambujeira do Mar, 2024."><img src="../img/ceu-lua-mar.jpg" alt="Moon and stars over the sea, with moonlight reflected around a rock" loading="lazy" width="1600" height="1066"><span>Moon over the sea</span></button>
         <button class="shot sk wide n" type="button" data-zoom data-t="The Heart Nebula" data-d="IC 1805, in the constellation Cassiopeia."><img src="../img/ceu-nebulosa.jpg" alt="The Heart Nebula in orange and blue tones over a field of stars" loading="lazy" width="1400" height="1386"><span>The Heart Nebula</span></button>
         <button class="shot sk" type="button" data-zoom data-t="Moonrise" data-d="Santa Clara Dam, Alentejo."><img src="../img/ceu-nascer-lua.jpg" alt="Sequence of the moon rising over the horizon near the Santa Clara Dam" loading="lazy" width="1200" height="1199"><span>Moonrise</span></button>
+        <button class="shot sk wide" type="button" data-zoom data-t="Thunderstorm over the sea" data-d="Zambujeira do Mar."><img src="../img/ceu-trovoada.jpg" alt="Lightning over the sea at dusk, with rocks in the foreground, at Zambujeira do Mar" loading="lazy" width="1600" height="899"><span>Thunderstorm over the sea</span></button>
+        <button class="shot sk mw" type="button" data-zoom data-t="Lunar halo" data-d="A ring of light formed by ice crystals in high clouds."><img src="../img/ceu-halo-lunar.jpg" alt="Full moon surrounded by a large ring of light, in a starry sky" loading="lazy" width="1400" height="933"><span>Lunar halo</span></button>
       </div>
+      <figure class="skyvid rv">
+        <video id="skyvid" src="../img/ceu-mertola.mp4" poster="../img/ceu-mertola.jpg" muted loop playsinline preload="none" width="1280" height="854" aria-label="Timelapse of the Milky Way moving over ruins in Mértola"></video>
+        <button class="vbtn" type="button" id="skyvidBtn" aria-label="Play the video">▶</button>
+        <figcaption><b>The Milky Way in motion</b><span>Timelapse · Mértola, Alentejo</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1006,6 +1023,20 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
       b.closest('.song').classList.add('playing');
     });
   });
+})();
+
+// Timelapse: toca quando aparece no ecrã (sem som); respeita quem prefere menos movimento
+(function () {
+  var v = document.getElementById('skyvid'), b = document.getElementById('skyvidBtn');
+  if (!v || !b) return;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, user = false;
+  var en = document.documentElement.lang === 'en';
+  function sync() { b.textContent = v.paused ? '▶' : '❚❚'; b.setAttribute('aria-label', v.paused ? (en ? 'Play the video' : 'Reproduzir o vídeo') : (en ? 'Pause the video' : 'Pausar o vídeo')); }
+  v.addEventListener('play', sync); v.addEventListener('pause', sync);
+  b.addEventListener('click', function () { user = true; if (v.paused) { v.play(); } else { v.pause(); } });
+  if (!reduce && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (user) return; if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); }); }, { threshold: .35 }).observe(v);
+  }
 })();
 </script>
 </body>
