@@ -389,6 +389,8 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .skygrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 15rem; gap: 1rem; grid-auto-flow: dense; }
 .sk.tall { grid-row: span 2; }
 .sk.wide { grid-column: span 2; }
+.sk.full { grid-column: 1 / -1; grid-row: span 2; }
+.sk.full img { object-position: 50% 50%; }
 .sk { background: #05080B; }
 .sk.big img { object-position: 50% 55%; }
 .skygrid + .skyvid { margin-top: 1rem; }
@@ -401,7 +403,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .vbtn:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
 @media (max-width: 760px) { .sk.mw { grid-column: span 2; } }
 
-@media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } }
+@media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } .sk.full { grid-row: auto; } }
 
 /* Entrada ao rolar (só depois do primeiro ecrã) */
 @media (prefers-reduced-motion: no-preference) {
@@ -797,6 +799,10 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
         <button class="shot sk" type="button" data-zoom data-t="Elephant’s Trunk Nebula" data-d="IC 1396, in the constellation Cepheus."><img src="../img/ceu-tromba-elefante.jpg" alt="Red nebula with dark globules in a field of stars" loading="lazy" width="1400" height="1400"><span>Elephant’s Trunk Nebula</span></button>
         <button class="shot sk" type="button" data-zoom data-t="IC 2944 nebula" data-d="With Thackeray’s globules, the dark patches near the brightest stars."><img src="../img/ceu-ic2944.jpg" alt="Blue and golden nebula with small dark clouds near bright stars" loading="lazy" width="1400" height="1400"><span>IC 2944 nebula</span></button>
         <button class="shot sk wide" type="button" data-zoom data-t="North America Nebula" data-d="NGC 7000, in the constellation Cygnus, starless."><img src="../img/ceu-america-norte.jpg" alt="Blue and golden nebula with dark dust lanes, starless" loading="lazy" width="1400" height="1400"><span>North America Nebula</span></button>
+        <button class="shot sk full" type="button" data-zoom data-t="Orion" data-d="The Horsehead and Flame nebulae, by the belt, and the Great Orion Nebula (M42)."><img src="../img/ceu-orion.jpg" alt="Panorama of the constellation Orion, with red nebulae and bright blue stars" loading="lazy" width="2000" height="1033"><span>Orion</span></button>
+        <button class="shot sk" type="button" data-zoom data-t="Andromeda Galaxy" data-d="M31, with its satellite galaxies M32 and M110."><img src="../img/ceu-andromeda.jpg" alt="The tilted spiral Andromeda Galaxy in a field of stars" loading="lazy" width="1400" height="1295"><span>Andromeda Galaxy</span></button>
+        <button class="shot sk" type="button" data-zoom data-t="Rho Ophiuchi and Antares" data-d="Dust and gas clouds by the star Antares, with the globular cluster M4."><img src="../img/ceu-rho-ophiuchi.jpg" alt="Blue, golden and dark clouds around bright stars, with a star cluster" loading="lazy" width="1400" height="1400"><span>Rho Ophiuchi and Antares</span></button>
+        <button class="shot sk mw" type="button" data-zoom data-t="California Nebula" data-d="NGC 1499, in the constellation Perseus."><img src="../img/ceu-california.jpg" alt="Elongated golden and blue nebula in a field of stars" loading="lazy" width="1400" height="1401"><span>California Nebula</span></button>
       </div>
       <figure class="skyvid rv">
         <video id="skyvid" src="../img/ceu-mertola.mp4" poster="../img/ceu-mertola.jpg" muted loop playsinline preload="none" width="1280" height="854" aria-label="Timelapse of the Milky Way moving over ruins in Mértola"></video>

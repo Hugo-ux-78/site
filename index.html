@@ -389,6 +389,8 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .skygrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 15rem; gap: 1rem; grid-auto-flow: dense; }
 .sk.tall { grid-row: span 2; }
 .sk.wide { grid-column: span 2; }
+.sk.full { grid-column: 1 / -1; grid-row: span 2; }
+.sk.full img { object-position: 50% 50%; }
 .sk { background: #05080B; }
 .sk.big img { object-position: 50% 55%; }
 .skygrid + .skyvid { margin-top: 1rem; }
@@ -401,7 +403,7 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
 .vbtn:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
 @media (max-width: 760px) { .sk.mw { grid-column: span 2; } }
 
-@media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } }
+@media (max-width: 760px) { .skygrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 10.5rem; } .sk.big { grid-row: auto; } .sk.n { grid-column: auto; } .sk.full { grid-row: auto; } }
 
 /* Entrada ao rolar (só depois do primeiro ecrã) */
 @media (prefers-reduced-motion: no-preference) {
@@ -797,6 +799,10 @@ footer .wrap { padding-block: 2.5rem 3rem; display: flex; justify-content: space
         <button class="shot sk" type="button" data-zoom data-t="Nebulosa da Tromba de Elefante" data-d="IC 1396, na constelação de Cefeu."><img src="img/ceu-tromba-elefante.jpg" alt="Nebulosa vermelha com glóbulos escuros, num campo de estrelas" loading="lazy" width="1400" height="1400"><span>Nebulosa da Tromba de Elefante</span></button>
         <button class="shot sk" type="button" data-zoom data-t="Nebulosa IC 2944" data-d="Com os glóbulos de Thackeray, as manchas escuras junto às estrelas mais brilhantes."><img src="img/ceu-ic2944.jpg" alt="Nebulosa em tons de azul e dourado, com pequenas nuvens escuras junto a estrelas brilhantes" loading="lazy" width="1400" height="1400"><span>Nebulosa IC 2944</span></button>
         <button class="shot sk wide" type="button" data-zoom data-t="Nebulosa da América do Norte" data-d="NGC 7000, na constelação do Cisne, sem estrelas."><img src="img/ceu-america-norte.jpg" alt="Nebulosa em tons de azul e dourado, com faixas escuras de poeira, sem estrelas" loading="lazy" width="1400" height="1400"><span>Nebulosa da América do Norte</span></button>
+        <button class="shot sk full" type="button" data-zoom data-t="Orionte" data-d="As nebulosas Cabeça de Cavalo e Chama, junto ao cinturão, e a Grande Nebulosa de Orionte (M42)."><img src="img/ceu-orion.jpg" alt="Panorâmica da constelação de Orionte, com nebulosas vermelhas e estrelas azuis brilhantes" loading="lazy" width="2000" height="1033"><span>Orionte</span></button>
+        <button class="shot sk" type="button" data-zoom data-t="Galáxia de Andrómeda" data-d="M31, com as galáxias satélite M32 e M110."><img src="img/ceu-andromeda.jpg" alt="Galáxia espiral de Andrómeda, inclinada, num campo de estrelas" loading="lazy" width="1400" height="1295"><span>Galáxia de Andrómeda</span></button>
+        <button class="shot sk" type="button" data-zoom data-t="Rho Ophiuchi e Antares" data-d="Nuvens de poeira e gás junto à estrela Antares, com o enxame globular M4."><img src="img/ceu-rho-ophiuchi.jpg" alt="Nuvens azuis, douradas e escuras à volta de estrelas brilhantes, com um enxame de estrelas" loading="lazy" width="1400" height="1400"><span>Rho Ophiuchi e Antares</span></button>
+        <button class="shot sk mw" type="button" data-zoom data-t="Nebulosa da Califórnia" data-d="NGC 1499, na constelação de Perseu."><img src="img/ceu-california.jpg" alt="Nebulosa alongada em tons de dourado e azul, num campo de estrelas" loading="lazy" width="1400" height="1401"><span>Nebulosa da Califórnia</span></button>
       </div>
       <figure class="skyvid rv">
         <video id="skyvid" src="img/ceu-mertola.mp4" poster="img/ceu-mertola.jpg" muted loop playsinline preload="none" width="1280" height="854" aria-label="Timelapse da Via Láctea a mover-se sobre ruínas, em Mértola"></video>
